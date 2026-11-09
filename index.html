@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marina Monterrubio Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -285,6 +290,7 @@ section.page{padding-block:48px 96px}
 .mdnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 24px;padding-block:16px 14px;align-items:start}
 .mdnav .col{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
 .mdnav .col.right{align-items:flex-end}
+.navrow{display:flex;gap:20px}
 .mdnav a{font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid transparent;padding-bottom:1px}
 .mdnav a:hover,.mdnav a[aria-current="page"]{border-bottom-color:var(--ink)}
 #inicio{padding-top:8px}
@@ -349,7 +355,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="col"><a href="#m-estrategia" data-g="macabla">Macabla</a></div>
     <div class="col"><a href="#bluelow" data-g="bluelow">BLUELOW</a></div>
     <div class="col"><a href="#inicio" class="home-link">Portfolio</a></div>
-    <div class="col right"><a href="#sobre-mi" data-g="sobre">Sobre mí</a><a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="col right"><a href="#sobre-mi" data-g="sobre">Sobre mí</a><span class="navrow"><a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener">LinkedIn</a><a href="en.html" class="lang" lang="en">EN</a></span></div>
   </div>
 </nav>
 <div class="subnav gut" id="subnav" hidden><div class="wrap" id="subnav-in"></div></div>
@@ -843,7 +849,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         <span class="eyebrow">Sobre mí</span>
         <h2>Marina Monterrubio Gras</h2>
         <p class="role mono">E-commerce Specialist · Madrid</p>
-        <p class="lede">Me dedico al e-commerce de moda. He llevado de forma integral la tienda online internacional en Shopify de Macabla, marca española de moda y joyería: de la planificación comercial y los lanzamientos al catálogo, el CRM con Klaviyo, el paid media y el análisis de resultados. Soy organizada, analítica y creativa, y me gusta seguir cada lanzamiento de principio a fin.</p>
+        <p class="lede">Soy E-commerce Specialist en moda. He llevado de forma integral la tienda online internacional en Shopify de Macabla, marca española de moda y joyería: de la planificación comercial y los lanzamientos al catálogo, el CRM con Klaviyo, el paid media y el análisis de resultados. Soy organizada, analítica y creativa, y me gusta seguir cada lanzamiento de principio a fin.</p>
       </div>
     </div>
 
@@ -858,8 +864,8 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
             <div><strong>E-commerce Intern</strong><span class="mono muted">Sept. 2025 – Feb. 2026</span></div>
           </div>
           <ul>
-            <li><b>Gestión integral de la tienda online (Shopify):</b> catálogo y fichas de producto en varios mercados e idiomas, merchandising, stock, promociones e integración con apps y canales de venta.</li>
-            <li><b>Estrategia comercial y lanzamientos:</b> calendario comercial y un drop semanal, coordinando con Comunicación, Diseño, Compras y Logística hasta la puesta en marcha en la web.</li>
+            <li><b>Gestión integral de la tienda online (Shopify):</b> catálogo y fichas de producto en varios mercados e idiomas, merchandising, promociones e integración con apps y canales de venta.</li>
+            <li><b>Estrategia comercial y lanzamientos:</b> calendario comercial y lanzamiento de drops, coordinando con Comunicación, Diseño, Compras y Logística hasta la puesta en marcha en la web.</li>
             <li><b>Análisis de negocio:</b> seguimiento de ventas, conversión, rentabilidad y rendimiento por mercado, con informes y trackers. Mejora de la web y el checkout con Microsoft Clarity.</li>
             <li><b>CRM y email marketing (Klaviyo):</b> newsletters, segmentación por propiedades y comportamiento, formularios de captación y flujos automatizados.</li>
             <li><b>Paid media (Meta, Google y Pinterest Ads):</b> awareness, captación de leads, retargeting y ventas por mercado, con catálogos para anuncios dinámicos.</li>
@@ -1077,7 +1083,6 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 <footer class="gut" id="contacto">
   <div class="wrap">
     <div class="contact"><span>marina.monterrubiogras@gmail.com</span><a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener">linkedin.com/in/marina-monterrubio-gras</a></div>
-    <span class="muted">Imágenes: Macabla</span>
   </div>
 </footer>
 
@@ -1129,3 +1134,4 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
   show();
 })();
 </script>
+<script>document.querySelectorAll("a.lang").forEach(function(a){a.addEventListener("click",function(){a.href=a.getAttribute("href").split("#")[0]+location.hash})});</script>
