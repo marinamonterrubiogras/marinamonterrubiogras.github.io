@@ -1,0 +1,1131 @@
+<title>Marina Monterrubio Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: minimal fashion e-commerce look, all Helvetica, monochrome. Each "page" is a hash route; drops read top-down like the New In grid (newest first). */
+:root{
+  --paper:#FFFFFF; --ink:#111111; --muted:#6B6B6B; --line:#E6E6E6; --panel:#F5F5F5;
+  --accent:#111111; --accent-ink:#FFFFFF; --accent-soft:#E9E9E9;
+  --f-display:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-body:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-mono:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F0F0F; --ink:#F2F2F2; --muted:#A0A0A0; --line:#2A2A2A; --panel:#1A1A1A;
+  --accent:#F2F2F2; --accent-ink:#0F0F0F; --accent-soft:#2E2E2E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F0F0F; --ink:#F2F2F2; --muted:#A0A0A0; --line:#2A2A2A; --panel:#1A1A1A;
+  --accent:#F2F2F2; --accent-ink:#0F0F0F; --accent-soft:#2E2E2E; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper)}
+.nav .bar3{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px 24px;padding-block:18px}
+.brand{font-size:26px;font-weight:400;letter-spacing:-.01em;text-transform:lowercase;text-decoration:none;justify-self:center;white-space:nowrap}
+.links{display:flex;gap:6px 28px;flex-wrap:wrap}
+.links.right{justify-content:flex-end}
+.links a{font-size:13px;font-weight:500;letter-spacing:.02em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding-block:4px;border-bottom:1px solid transparent}
+.links a:hover,.links a[aria-current="page"]{border-bottom-color:var(--ink)}
+
+/* type */
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+h1{font-weight:400;font-size:clamp(48px,9vw,128px);letter-spacing:-.035em;line-height:.95}
+h2{font-weight:400;font-size:clamp(36px,5.4vw,72px);letter-spacing:-.03em;line-height:1}
+h3{font-weight:500;font-size:14px;letter-spacing:.04em;text-transform:uppercase;line-height:1.2}
+.lede{font-size:clamp(16px,1.5vw,19px);max-width:60ch;color:var(--ink);margin:0}
+p{margin:0}
+.muted{color:var(--muted)}
+.mono{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:760px){
+  .nav .bar3{grid-template-columns:minmax(0,1fr);justify-items:center;padding-block:14px}
+  .links,.links.right{justify-content:center;gap:6px 18px}
+  .brand{order:-1}
+}
+
+section.page{padding-block:48px 96px}
+.stack{display:flex;flex-direction:column}
+.band{padding-block:56px;border-top:1px solid var(--line)}
+
+/* home */
+.hero{display:grid;gap:28px;padding-block:24px 48px}
+.hero .role{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-top:18px}
+.drops-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.drops-strip a{display:flex;flex-direction:column;gap:10px;text-decoration:none}
+.drops-strip .ph{aspect-ratio:4/3;overflow:hidden;background:var(--panel)}
+.drops-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.drops-strip a:hover img{transform:scale(1.03)}
+.cap{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.cap b{font-weight:500;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card{display:flex;flex-direction:column;gap:12px;padding:22px;border:1px solid var(--line);text-decoration:none;min-height:200px;justify-content:space-between;transition:background .2s,border-color .2s}
+.card:hover{border-color:var(--ink);background:var(--panel)}
+.card .arrow{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+
+/* new in */
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--ink);display:inline-block}
+.chip.now i{background:var(--accent)}
+.drop{display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;padding-block:32px;border-top:1px solid var(--line)}
+.drop aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);align-self:start;display:flex;flex-direction:column;gap:10px}
+.drop aside .tag{align-self:flex-start;background:var(--ink);color:var(--paper);padding:4px 10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.drop.now aside .tag{background:var(--accent);color:var(--accent-ink)}
+.drop .shot{border:1px solid var(--line);background:#FFFFFF}
+.note{border-left:3px solid var(--accent);padding:4px 0 4px 14px;font-size:15px}
+.build{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:start}
+.build .board{border:1px solid var(--line);background:#F4F4F4}
+.why{display:flex;flex-direction:column;gap:20px}
+.why div{display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--line)}
+.why strong{font-weight:500;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+
+/* drops */
+.homes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.home{display:flex;flex-direction:column;gap:12px;min-width:0}
+.frame{border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.frame .bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.frame .bar span{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.frame .scroll{max-height:680px;overflow-y:auto;background:#FFFFFF}
+.home .meta{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+
+/* proceso */
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.week{display:flex;flex-direction:column;gap:12px;padding:20px;background:var(--panel);min-width:0}
+.week.d{background:var(--accent);color:var(--accent-ink)}
+.week.d .mono{color:var(--accent-ink)}
+.week ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.gantt-box{overflow-x:auto;border:1px solid var(--line)}
+.gantt{display:grid;grid-template-columns:150px repeat(7,minmax(104px,1fr));min-width:900px}
+.gantt > div{padding:12px 10px;border-bottom:1px solid var(--line);font-size:14px}
+.gantt .h{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.gantt .h.focus{color:var(--accent);font-weight:500}
+.gantt .lbl{font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:12px}
+.seg{margin:0 2px;font-size:12px;font-weight:600;padding:8px 8px!important;border:0!important;align-self:center}
+.s-plan{background:var(--panel);color:var(--ink)}
+.s-shoot{background:var(--line);color:var(--ink)}
+.s-build{background:var(--accent-soft);color:var(--ink)}
+.s-drop{background:var(--accent);color:var(--accent-ink)}
+.s-an{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.gantt .col-focus{box-shadow:inset 0 0 0 2px var(--accent)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.opt{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:10px}
+.opt .mono{color:var(--accent)}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:f}
+.flow div{border-top:3px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.flow div:last-child{border-color:var(--accent)}
+.flow strong{font-size:17px}
+
+/* ficha */
+.tabs{display:flex;gap:0;border:1px solid var(--ink);align-self:flex-start}
+.tabs button{font:inherit;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px;background:transparent;color:var(--ink);border:0;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.pdp{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:start}
+.pdp-shot{position:relative;border:1px solid var(--line);background:#FFFFFF}
+.pin{position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;box-shadow:0 0 0 3px var(--paper)}
+.notes{display:flex;flex-direction:column;gap:0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 90px)}
+.notes li{list-style:none;display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding-block:16px;border-top:1px solid var(--line)}
+.notes ol{margin:0;padding:0}
+.notes .n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.notes strong{display:block;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.notes p{font-size:15px;color:var(--muted)}
+.zoom{display:grid;grid-template-columns:280px minmax(0,1fr);gap:32px;align-items:start}
+.zoom figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.zoom img{border:1px solid var(--line);background:#FFFFFF}
+.loop{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line)}
+.loop div{padding:22px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);position:relative}
+.loop div:first-child{border-left:0}
+.loop div:last-child{background:var(--ink);color:var(--paper)}
+.loop div:last-child .muted{color:var(--paper);opacity:.75}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.trio div{border-top:1px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:880px){.pdp,.zoom{grid-template-columns:minmax(0,1fr)}.notes{position:static}.loop{grid-template-columns:repeat(2,minmax(0,1fr))}.loop div:nth-child(3){border-left:0}}
+@media (max-width:560px){.loop,.trio{grid-template-columns:minmax(0,1fr)}.loop div{border-left:0;border-top:1px solid var(--line)}}
+
+/* early access */
+.sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.src{display:flex;flex-direction:column;gap:12px;min-width:0}
+.src .img{border:1px solid var(--line);background:var(--panel);aspect-ratio:4/5;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.src .img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.src .img.contain img{object-fit:contain;background:#F3F4F6}
+.src .ph{font-size:13px;color:var(--muted);text-align:center;padding:24px;border:1px dashed var(--line);margin:16px;align-self:stretch;display:flex;align-items:center;justify-content:center}
+.klaviyo{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;border:1px solid var(--ink);font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-align:center}
+.flowline{display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);gap:20px;align-items:start}
+.mail{display:flex;flex-direction:column;gap:12px;min-width:0}
+.mail img{border:1px solid var(--line);background:#FFFFFF}
+.wait{display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:120px;text-align:center}
+.wait .line{width:1px;height:80px;background:var(--ink)}
+.wait b{font-size:28px;font-weight:400;letter-spacing:-.02em}
+.branch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.branch div{padding:16px;border:1px solid var(--line);font-size:15px}
+@media (max-width:880px){.sources{grid-template-columns:minmax(0,1fr)}.flowline{grid-template-columns:minmax(0,1fr)}.wait{padding-top:0;flex-direction:row;justify-content:center}.wait .line{width:60px;height:1px}}
+
+/* newsletters */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:inherit;font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px;align-items:start}
+.nl{display:flex;flex-direction:column;gap:10px;min-width:0}
+.nl .scroll{max-height:620px;overflow-y:auto;border:1px solid var(--line);background:#FFFFFF}
+.nl .scroll img{width:100%}
+.nl p{font-size:14px}
+@media (max-width:880px){.nls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.nls{grid-template-columns:minmax(0,1fr)}}
+
+/* paid */
+.funnel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--ink)}
+.funnel > div{padding:24px;display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--ink);min-width:0}
+.funnel > div:first-child{border-left:0}
+.funnel > div.d{background:var(--ink);color:var(--paper)}
+.funnel > div.d .muted{color:var(--paper);opacity:.75}
+.funnel ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+.adgroup{display:flex;flex-direction:column;gap:16px;padding-block:28px;border-top:1px solid var(--line)}
+.adgroup .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px}
+.ads{display:flex;flex-wrap:wrap;gap:16px}
+.ad{display:flex;flex-direction:column;gap:8px;width:200px}
+.ad img{width:200px;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line)}
+.ads{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ads .ad,.ads .ad img{width:100%}
+.ad .cta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.channels{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:880px){.funnel{grid-template-columns:minmax(0,1fr)}.funnel > div{border-left:0;border-top:1px solid var(--ink)}.funnel > div:first-child{border-top:0}.ad,.ad img{width:150px}}
+
+.eco{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);gap:12px;align-items:center}
+.eco-col{display:flex;flex-direction:column;gap:10px;min-width:0}
+.eco-arrow{font-size:24px;text-align:center}
+.node{border:1px solid var(--ink);padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:var(--paper)}
+.node strong{font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.node p,.node li{font-size:14px;color:var(--muted)}
+.node ul{margin:6px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:4px}
+.node.dark{background:var(--ink);color:var(--paper)}
+.node.dark li{color:var(--paper);opacity:.8}
+.node.accent{background:var(--ink);color:var(--paper)}
+.loopback{border:1px dashed var(--ink);padding:14px 18px;font-size:15px;display:flex;gap:12px;align-items:center}
+.loopback span{font-size:22px}
+.ad{margin:0}
+.ad.wide{width:420px}
+.ad.wide img{width:420px;aspect-ratio:auto;height:auto}
+@media (max-width:980px){.eco{grid-template-columns:minmax(0,1fr)}.eco-arrow{transform:rotate(90deg)}.ad.wide,.ad.wide img{width:100%}}
+.flows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.stage{border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.stage.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.stage.dark .muted{color:var(--paper);opacity:.75}
+.stage.dark .trig{border-color:var(--paper)}
+.frow{display:grid;grid-template-columns:auto 18px minmax(0,1fr);gap:10px;align-items:start;padding-top:14px;border-top:1px solid var(--line)}
+.stage.dark .frow{border-color:rgba(255,255,255,.2)}
+.trig{font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--ink);padding:5px 8px;max-width:130px}
+.frow strong{font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.frow p{font-size:14px}
+@media (max-width:980px){.flows{grid-template-columns:minmax(0,1fr)}}
+.signals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.sg{border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.sg ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sg strong{font-weight:500}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--ink)}
+.kpis div{padding:24px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--ink);min-width:0}
+.kpis div:first-child{border-left:0}
+.kpis b{font-size:clamp(36px,4.6vw,60px);font-weight:400;letter-spacing:-.03em;line-height:1}
+@media (max-width:880px){.signals,.kpis{grid-template-columns:minmax(0,1fr)}.kpis div{border-left:0;border-top:1px solid var(--ink)}.kpis div:first-child{border-top:0}}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kpi-grid a{border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:8px;text-decoration:none;min-width:0;transition:border-color .2s,background .2s}
+.kpi-grid a:hover{border-color:var(--ink);background:var(--panel)}
+.kpi-grid b{font-size:clamp(30px,3.4vw,44px);font-weight:400;letter-spacing:-.03em;line-height:1}
+.kpi-grid .arrow{margin-top:auto;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+.about-hero{display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;align-items:end}
+.me{width:240px;aspect-ratio:4/5;object-fit:cover;object-position:center 30%}
+@media (max-width:880px){.me{width:180px}}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.facts div{padding:22px 22px 22px 0;display:flex;flex-direction:column;gap:6px}
+.facts div+div{padding-left:22px;border-left:1px solid var(--line)}
+.facts p{font-size:17px}
+.cv{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:64px;align-items:start}
+.job{display:flex;flex-direction:column;gap:16px;padding-top:20px;border-top:1px solid var(--line)}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px}
+.job-head h3{font-size:clamp(26px,3vw,36px);font-weight:400;letter-spacing:-.02em;text-transform:none}
+.roles{display:flex;flex-direction:column;gap:6px}
+.roles div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.roles strong{font-weight:500}
+.job ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.job b{font-weight:500}
+.edu{display:flex;flex-direction:column;gap:16px}
+.edu div{display:flex;flex-direction:column;gap:2px;padding-top:14px;border-top:1px solid var(--line)}
+.edu strong{font-weight:500}
+.courses{display:flex;flex-direction:column}
+.courses div{display:flex;justify-content:space-between;gap:16px;padding-block:10px;border-top:1px solid var(--line);font-size:15px}
+.courses div span:last-child{white-space:nowrap}
+.cv-side{display:flex;flex-direction:column;gap:32px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 90px)}
+.side-block{display:flex;flex-direction:column;gap:10px}
+.plain{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.cv-side dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:15px}
+.cv-side dt{color:var(--muted)}
+.cv-side dd{margin:0}
+@media (max-width:880px){.about-hero,.cv{grid-template-columns:minmax(0,1fr)}.cv-side{position:static}.facts{grid-template-columns:minmax(0,1fr)}.facts div,.facts div+div{padding:16px 0;border-left:0;border-top:1px solid var(--line)}.facts div:first-child{border-top:0}.courses div{flex-direction:column;gap:2px}}
+.subnav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);z-index:4;background:var(--paper);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;gap:6px 24px;flex-wrap:wrap;padding-block:10px}
+.subnav a{font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding-block:3px;border-bottom:1px solid transparent}
+.subnav a:hover{color:var(--ink)}
+.subnav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+@media (max-width:760px){.subnav{position:static}.subnav .wrap{justify-content:center}}
+.check{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.check li{display:flex;gap:12px;align-items:flex-start;padding:16px 16px 16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.check li::before{content:"";flex:0 0 16px;height:16px;margin-top:2px;border:1px solid var(--ink);background:linear-gradient(var(--ink),var(--ink)) center/8px 8px no-repeat}
+.cs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--ink)}
+.cs div{padding:22px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--ink);min-width:0}
+.cs div:first-child{border-left:0}
+.cs div.d{background:var(--ink);color:var(--paper)}
+.cs strong{font-weight:500}
+@media (max-width:980px){.cs{grid-template-columns:minmax(0,1fr)}.cs div{border-left:0;border-top:1px solid var(--ink)}.cs div:first-child{border-top:0}.check{grid-template-columns:minmax(0,1fr)}}
+.mdnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 24px;padding-block:16px 14px;align-items:start}
+.mdnav .col{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
+.mdnav .col.right{align-items:flex-end}
+.mdnav a{font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid transparent;padding-bottom:1px}
+.mdnav a:hover,.mdnav a[aria-current="page"]{border-bottom-color:var(--ink)}
+#inicio{padding-top:8px}
+.wordmark{font-weight:400;font-size:clamp(52px,9.6vw,150px);letter-spacing:-.045em;line-height:.9;margin:0}
+.bleed{margin-left:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));margin-right:calc(-1 * max(16px, env(safe-area-inset-right, 0px)))}
+.bleed img{width:100%;height:auto;max-height:78vh;object-fit:cover;object-position:center 30%}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px 48px;align-items:baseline}
+.subnav{top:calc(env(safe-area-inset-top,0px) + 82px)}
+@media (max-width:760px){.mdnav{grid-template-columns:repeat(2,minmax(0,1fr))}.mdnav .col:nth-child(3){grid-column:1/-1;grid-row:1;align-items:center}.mdnav .col.right{align-items:flex-end}.intro{grid-template-columns:minmax(0,1fr)}}
+.cover{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:center;max-width:1240px;margin:0 auto;width:100%;padding-block:24px}
+.cover .wordmark{font-size:clamp(56px,8.4vw,128px);letter-spacing:-.035em;line-height:.95}
+.cover-art{width:100%;max-width:440px;justify-self:center;height:auto}
+@media (max-width:760px){.cover{grid-template-columns:minmax(0,1fr)}.cover-art{max-width:260px}}
+html,body{overflow-x:clip}
+.companies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.company{display:flex;flex-direction:column;gap:12px;text-decoration:none;min-width:0;padding-top:20px;border-top:1px solid var(--ink)}
+.company .ph{aspect-ratio:16/10;overflow:hidden;background:var(--panel)}
+.company .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.company:hover .ph img{transform:scale(1.03)}
+.company .arrow{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+.bl-ph{display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);background:var(--panel)}
+.bl-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+.roles-strip{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--ink);padding-top:16px}
+.roles-strip div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.roles-strip strong{font-weight:500}
+@media (max-width:760px){.companies,.bl-gallery{grid-template-columns:minmax(0,1fr)}}
+.bl-gallery figure{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.bl-gallery img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.bl-more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bl-more .bl-ph{aspect-ratio:16/9}
+@media (max-width:760px){.bl-more{grid-template-columns:minmax(0,1fr)}}
+.briefing-img{width:100%;height:auto}
+.shotcol{display:flex;flex-direction:column;gap:20px;min-width:0}
+.shotwrap{position:relative}
+.lookmark{position:absolute;border:3px solid var(--ink);box-shadow:0 0 0 3px var(--paper)}
+.lookfig{margin:0;display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:start}
+.lookfig figcaption{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.lookfig img{border:1px solid var(--line);width:100%}
+@media (max-width:760px){.lookfig{grid-template-columns:minmax(0,1fr)}}
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px;font-size:14px}
+footer .contact{display:flex;flex-wrap:wrap;gap:8px 24px}
+footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+@media (max-width:880px){
+  .drop{grid-template-columns:minmax(0,1fr);gap:16px}
+  .drop aside{position:static}
+  .build{grid-template-columns:minmax(0,1fr)}
+  .homes{grid-template-columns:minmax(0,1fr)}
+  .weeks,.flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .drops-strip{grid-template-columns:minmax(0,1fr)}
+  .weeks,.flow,.two{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+
+<nav class="nav gut" aria-label="Secciones">
+  <div class="wrap mdnav">
+    <div class="col"><a href="#m-estrategia" data-g="macabla">Macabla</a></div>
+    <div class="col"><a href="#bluelow" data-g="bluelow">BLUELOW</a></div>
+    <div class="col"><a href="#inicio" class="home-link">Portfolio</a></div>
+    <div class="col right"><a href="#sobre-mi" data-g="sobre">Sobre mí</a><a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+</nav>
+<div class="subnav gut" id="subnav" hidden><div class="wrap" id="subnav-in"></div></div>
+
+<main>
+<!-- INICIO -->
+<section class="page gut" id="inicio" data-page>
+  <div class="wrap stack" style="gap:56px">
+    <div class="cover">
+      <div class="stack" style="gap:20px"><h1 class="wordmark">Marina<br>Monterrubio</h1><p class="mono">E-commerce Specialist</p></div>
+      <img class="cover-art" src="bailarinas.png" alt="Dibujo de unas bailarinas con lazo">
+    </div>
+    <div class="companies">
+      <a class="company" href="#m-estrategia">
+        <div class="cap"><b>Macabla</b><span class="mono muted">2025 – 2026</span></div>
+        <p class="muted">E-commerce &amp; Paid Media Manager</p>
+        <p>Gestión integral de la tienda online: estrategia comercial, CRM, paid media y análisis de negocio online.</p>
+        <span class="arrow">Ver trabajo →</span>
+      </a>
+      <a class="company" href="#bluelow">
+        <div class="cap"><b>BLUELOW</b><span class="mono muted">2024 – 2025</span></div>
+        <p class="muted">Community Manager</p>
+        <p>Redes sociales, shootings y eventos con influencers y prensa, con apoyo en el e-commerce y el email marketing.</p>
+        <span class="arrow">Ver trabajo →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BLUELOW -->
+<section class="page gut" id="bluelow" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Moda femenina y accesorios · Madrid · 2024 – 2025</span>
+      <h2>BLUELOW</h2>
+      <p class="lede">Empecé en prácticas y después pasé a ser Community Manager. Llevaba las redes sociales, participaba en los shootings, organizaba eventos con influencers y prensa y daba apoyo en la tienda online y en el email marketing.</p>
+    </div>
+    <div class="roles-strip">
+      <div><strong>Community Manager</strong><span class="mono muted">Abr. 2025 – Sept. 2025</span></div>
+      <div><strong>Community Manager (prácticas)</strong><span class="mono muted">Sept. 2024 – Abr. 2025</span></div>
+    </div>
+    <div class="flow">
+      <div><span class="mono muted">Contenido</span><strong>Redes sociales</strong><p class="muted">Gestión de las redes de la marca: creaba el contenido, montaba las creatividades, ordenaba el feed y analizaba tendencias.</p></div>
+      <div><span class="mono muted">Producción</span><strong>Shootings</strong><p class="muted">Asistencia en los shootings: ayudaba con los estilismos y en la gestión y coordinación con las modelos.</p></div>
+      <div><span class="mono muted">Comunidad</span><strong>Eventos</strong><p class="muted">Organización de eventos con influencers y prensa: contactaba con las invitadas, preparaba las invitaciones y coordinaba a las marcas colaboradoras.</p></div>
+      <div><span class="mono" style="color:var(--ink)">E-commerce</span><strong>Shopify y Klaviyo</strong><p class="muted">Apoyo en la tienda online y campañas de email marketing.</p></div>
+    </div>
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">En los shootings</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Detrás de cámara</h2>
+      <div class="bl-gallery">
+        <figure><img src="bl-shoot-1.jpg" alt="Burro con las prendas y el calzado preparados para un shooting"></figure>
+        <figure><img src="bl-shoot-2.jpg" alt="Hoja de looks de un shooting en el suelo del estudio"></figure>
+        <figure><img src="bl-shoot-3.jpg" alt="Pantalón rosa con broches bordados preparado para fotografiar"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW IN -->
+<section class="page gut" id="new-in" data-page hidden>
+  <div class="wrap stack" style="gap:40px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">La parrilla</span>
+      <h2>New In</h2>
+      <p class="lede">Es la página más importante de la web, porque es donde aparecen las novedades. Con cada lanzamiento, las nuevas referencias se colocan arriba y las anteriores van bajando, de modo que lo más nuevo siempre se ve primero y convive con los drops anteriores.</p>
+      <div class="legend">
+        <a class="chip now" href="#d-outwear"><i></i>Outwear · más reciente</a>
+        <a class="chip" href="#d-knit"><i></i>Knit 01</a>
+        <a class="chip" href="#d-leather"><i></i>Leather and lines</a>
+      </div>
+    </div>
+
+    <div>
+      <article class="drop now" id="d-outwear">
+        <aside>
+          <span class="tag">Esta semana</span>
+          <h3>Drop<br>Outwear</h3>
+        </aside>
+        <img class="shot" src="newin-outwear.jpg" alt="Parrilla New In, filas del drop Outwear" loading="lazy">
+      </article>
+      <article class="drop" id="d-knit">
+        <aside>
+          <span class="tag">Semana anterior</span>
+          <h3>Drop<br>Knit 01</h3>
+          <p class="muted" style="font-size:15px">Sigue visible justo debajo, con sus bloques de Comprar el look.</p>
+        </aside>
+        <div class="shotcol"><div class="shotwrap"><img class="shot" src="newin-knit.jpg" alt="Parrilla New In, filas del drop Knit 01" loading="lazy"><span class="lookmark" style="left:26.5%;top:39.8%;width:23.7%;height:17.8%" aria-hidden="true"></span></div>
+          <figure class="lookfig"><figcaption><span class="mono">Comprar el look</span><span class="muted">Look 03 · 6 productos. Es un producto que lleva a una landing donde se pueden comprar a la vez todas las prendas del look. Inspira al usuario, eleva la web y potencia el cross-selling.</span></figcaption><img src="look-knit.jpg" alt="Página del look con todos sus productos" loading="lazy"></figure></div>
+      </article>
+      <article class="drop" id="d-leather">
+        <aside>
+          <span class="tag">Hace dos semanas</span>
+          <h3>Drop<br>Leather and lines</h3>
+          <p class="muted" style="font-size:15px">Y así sucesivamente con el resto de drops anteriores.</p>
+        </aside>
+        <div class="shotcol"><div class="shotwrap"><img class="shot" src="newin-leather.jpg" alt="Parrilla New In, filas del drop Leather and lines" loading="lazy"><span class="lookmark" style="left:2.5%;top:0.2%;width:23.7%;height:44.6%" aria-hidden="true"></span></div>
+          <figure class="lookfig"><figcaption><span class="mono">Comprar el look</span><span class="muted">Look 05 · 4 productos.</span></figcaption><img src="look-leather.jpg" alt="Página del look con todos sus productos" loading="lazy"></figure></div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- DROPS -->
+<section class="page gut" id="drops" data-page hidden>
+  <div class="wrap stack" style="gap:40px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Tienda</span>
+      <h2>Homes</h2>
+      <p class="lede">Con cada lanzamiento cambio la home: la imagen principal de la campaña, elegida junto con Comunicación, y debajo una selección de productos por categoría y acceso a la colección. Del más reciente al más antiguo. Desliza dentro de cada una para verla entera.</p>
+    </div>
+    <div class="homes">
+      <div class="home">
+        <div class="meta"><h3>Outwear</h3><span class="mono" style="color:var(--accent)">Más reciente</span></div>
+        <div class="frame"><div class="bar"><span></span><span></span><span></span></div><div class="scroll" tabindex="0" aria-label="Home del drop Outwear"><img src="home-outwear-2.jpg" alt="Home de macabla.com para el drop Outwear"></div></div>
+      </div>
+      <div class="home">
+        <div class="meta"><h3>Knit 01</h3><span class="mono muted">Semana anterior</span></div>
+        <div class="frame"><div class="bar"><span></span><span></span><span></span></div><div class="scroll" tabindex="0" aria-label="Home del drop Knit 01"><img src="home-knit-2.jpg" alt="Home de macabla.com para el drop Knit 01"></div></div>
+      </div>
+      <div class="home">
+        <div class="meta"><h3>Leather and lines</h3><span class="mono muted">Hace dos semanas</span></div>
+        <div class="frame"><div class="bar"><span></span><span></span><span></span></div><div class="scroll" tabindex="0" aria-label="Home del drop Leather and lines"><img src="home-leather-2.jpg" alt="Home de macabla.com para el drop Leather and lines"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FICHA -->
+<section class="page gut" id="ficha" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">La ficha</span>
+      <h2>Ficha de producto</h2>
+      <p class="lede">Cada bloque de la ficha tiene un objetivo: que el producto se vea bien, que la clienta elija bien su talla y que descubra más producto. La adapto a cada producto según su tipo y sus tallas: no es lo mismo un accesorio de talla única que una prenda con tallas.</p>
+      <div class="tabs" role="tablist" aria-label="Elegir ficha">
+        <button type="button" role="tab" id="tab-bandana" aria-selected="true" aria-controls="p-bandana" data-tab="p-bandana">Bandana · talla única</button>
+        <button type="button" role="tab" id="tab-camiseta" aria-selected="false" aria-controls="p-camiseta" data-tab="p-camiseta">Camiseta · S, M, L</button>
+      </div>
+    </div>
+
+    <div id="p-bandana" role="tabpanel" aria-labelledby="tab-bandana" class="stack" style="gap:48px">
+      <div class="pdp">
+        <div class="pdp-shot">
+          <img src="pdp-bandana.jpg" alt="Ficha de producto de la Bandana Pointelle Azul Claro" loading="lazy">
+          <span class="pin" style="left:14%;top:6%">1</span>
+          <span class="pin" style="left:61%;top:8.9%">2</span>
+          <span class="pin" style="left:61%;top:11%">3</span>
+          <span class="pin" style="left:61%;top:15.2%">4</span>
+          <span class="pin" style="left:61%;top:17%">5</span>
+          <span class="pin" style="left:38%;top:54.2%">6</span>
+          <span class="pin" style="left:80%;top:56.2%">7</span>
+        </div>
+        <div class="notes"><ol>
+          <li><span class="n">1</span><div><strong>Galería</strong><p>Decido el orden de las fotos: silueta, e-commerce y campaña. La silueta muestra bien el producto, su tejido y su forma; en las de e-commerce se ve cómo le sienta a la modelo, y las de campaña elevan la marca.</p></div></li>
+          <li><span class="n">2</span><div><strong>Variantes de color</strong><p>Muestran de forma visual los otros colores del mismo producto, para que la clienta pueda elegir sin salir de la ficha.</p></div></li>
+          <li><span class="n">3</span><div><strong>Guía de tallas</strong><p>Monto la guía con las medidas que me pasa Diseño. Ayuda a la clienta a elegir su talla y así reducir cambios y devoluciones.</p></div></li>
+          <li><span class="n">4</span><div><strong>Descripción</strong><p>El nombre del producto, el color y el material se repiten de forma natural en el texto, porque es lo que busca la clienta. Así también mejora el posicionamiento SEO.</p></div></li>
+          <li><span class="n">5</span><div><strong>Completa tu look</strong><p>Prendas que combinan con el producto y aparecen en las fotos. Le da valor a la ficha y empuja el cross-selling, lo que ayuda a subir el ticket medio.</p></div></li>
+          <li><span class="n">6</span><div><strong>Productos recomendados</strong><p>Más cross-selling al final de la ficha. Los voy rotando entre best sellers, novedades y productos que necesitan más visibilidad.</p></div></li>
+          <li><span class="n">7</span><div><strong>Etiquetas</strong><p>Gestiono las etiquetas de producto, como Best seller o Personalizable. Aparecen en las tarjetas de producto de toda la web: New In, colecciones y recomendados.</p></div></li>
+        </ol></div>
+      </div>
+      <div class="zoom">
+        <figure><img src="guia-bandana.jpg" alt="Guía de tallas de la Bandana Pointelle" loading="lazy"><figcaption class="mono muted">Guía de tallas</figcaption></figure>
+        <figure><img src="desc-bandana.jpg" alt="Descripción de la Bandana Pointelle" loading="lazy"><figcaption class="mono muted">Descripción · texto y composición</figcaption></figure>
+      </div>
+    </div>
+
+    <div id="p-camiseta" role="tabpanel" aria-labelledby="tab-camiseta" class="stack" style="gap:48px" hidden>
+      <div class="pdp">
+        <div class="pdp-shot">
+          <img src="pdp-camiseta.jpg" alt="Ficha de producto de la Camiseta Overlay Azul Eléctrico" loading="lazy">
+          <span class="pin" style="left:14%;top:6%">1</span>
+          <span class="pin" style="left:61.5%;top:8.9%">2</span>
+          <span class="pin" style="left:61.5%;top:11.6%">3</span>
+          <span class="pin" style="left:61.5%;top:17.7%">4</span>
+          <span class="pin" style="left:61.5%;top:19.5%">5</span>
+          <span class="pin" style="left:38%;top:54.2%">6</span>
+          <span class="pin" style="left:41%;top:56.1%">7</span>
+        </div>
+        <div class="notes"><ol>
+          <li><span class="n">1</span><div><strong>Galería</strong><p>Decido el orden de las fotos: silueta, e-commerce y campaña. La silueta muestra bien el producto, su tejido y su forma; en las de e-commerce se ve cómo le sienta a la modelo, y las de campaña elevan la marca.</p></div></li>
+          <li><span class="n">2</span><div><strong>Variantes de color</strong><p>Muestran de forma visual los otros colores del mismo producto, para que la clienta pueda elegir sin salir de la ficha.</p></div></li>
+          <li><span class="n">3</span><div><strong>Guía de tallas</strong><p>Monto la guía con las medidas que me pasa Diseño. Ayuda a la clienta a elegir su talla y así reducir cambios y devoluciones.</p></div></li>
+          <li><span class="n">4</span><div><strong>Descripción</strong><p>El nombre del producto, el color y el material se repiten de forma natural en el texto, porque es lo que busca la clienta. Así también mejora el posicionamiento SEO.</p></div></li>
+          <li><span class="n">5</span><div><strong>Completa tu look</strong><p>Prendas que combinan con el producto y aparecen en las fotos. Le da valor a la ficha y empuja el cross-selling, lo que ayuda a subir el ticket medio.</p></div></li>
+          <li><span class="n">6</span><div><strong>Productos recomendados</strong><p>Más cross-selling al final de la ficha. Los voy rotando entre best sellers, novedades y productos que necesitan más visibilidad.</p></div></li>
+          <li><span class="n">7</span><div><strong>Etiquetas</strong><p>Gestiono las etiquetas de producto, como Best seller o Personalizable. Aparecen en las tarjetas de producto de toda la web: New In, colecciones y recomendados.</p></div></li>
+        </ol></div>
+      </div>
+      <div class="zoom">
+        <figure><img src="guia-camiseta.jpg" alt="Guía de tallas de la Camiseta Overlay" loading="lazy"><figcaption class="mono muted">Guía de tallas</figcaption></figure>
+        <figure><img src="desc-camiseta.jpg" alt="Descripción de la Camiseta Overlay" loading="lazy"><figcaption class="mono muted">Descripción · texto, composición y modelo</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Cross-selling</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Las recomendaciones salen de los pedidos reales</h2>
+      <div class="loop">
+        <div><span class="mono muted">1</span><strong>Análisis de pedidos</strong><p class="muted">Reviso los pedidos online para entender cómo compra la clienta.</p></div>
+        <div><span class="mono muted">2</span><strong>Productos que se compran juntos</strong><p class="muted">Detecto qué combinaciones se repiten en los carritos.</p></div>
+        <div><span class="mono muted">3</span><strong>Recomendaciones</strong><p class="muted">Con esa información ajusto Completa tu look y los productos recomendados.</p></div>
+        <div><span class="mono muted">Objetivo</span><strong>Subir el ticket medio</strong><p class="muted">Que cada pedido contenga más productos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS -->
+<section class="page gut" id="newsletters" data-page hidden>
+  <div class="wrap stack" style="gap:40px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">CRM y email</span>
+      <h2>Newsletters y flujos</h2>
+      <p class="lede">Monto el calendario de newsletters al ritmo de los drops con Klaviyo: una a toda la base el día del lanzamiento, en cada idioma, y un refuerzo a los dos días. Además, combino las newsletters de drops con otras editoriales y de eventos que cuentan la marca más allá del producto.</p>
+      <div class="filters" role="group" aria-label="Filtrar newsletters">
+        <button type="button" data-f="all" aria-pressed="true">Todas</button>
+        <button type="button" data-f="drop" aria-pressed="false">Drops</button>
+        <button type="button" data-f="editorial" aria-pressed="false">Editorial</button>
+        <button type="button" data-f="evento" aria-pressed="false">Eventos</button>
+        <button type="button" data-f="coleccion" aria-pressed="false">Colección SS26</button>
+      </div>
+    </div>
+    <div class="nls">
+      <article class="nl" data-k="drop"><span class="mono muted">Drop · Outwear</span><h3>Lanzamiento del drop</h3><div class="scroll" tabindex="0" aria-label="Newsletter del drop Outwear"><img src="nl-outwear.jpg" alt="Newsletter de lanzamiento del drop Outwear"></div></article>
+      <article class="nl" data-k="drop"><span class="mono muted">Drop · Knit 01</span><h3>Jerseys y cárdigans</h3><div class="scroll" tabindex="0" aria-label="Newsletter del drop Knit 01"><img src="nl-knit-1.jpg" alt="Newsletter del drop Knit 01 con producto por categorías"></div></article>
+      <article class="nl" data-k="drop"><span class="mono muted">Drop · Knit 01</span><h3>Las piezas de invierno</h3><div class="scroll" tabindex="0" aria-label="Segunda newsletter del drop Knit 01"><img src="nl-knit-2.jpg" alt="Newsletter de piezas de invierno del drop Knit 01"></div></article>
+      <article class="nl" data-k="drop"><span class="mono muted">Drop · Leather and lines</span><h3>Lanzamiento del drop</h3><div class="scroll" tabindex="0" aria-label="Newsletter del drop Leather and lines"><img src="nl-leather.jpg" alt="Newsletter de lanzamiento del drop Leather and lines"></div></article>
+      <article class="nl" data-k="editorial"><span class="mono muted">Editorial · Macabla Talks</span><h3>Día de la Madre con @leti.salinero y sus hijas</h3><div class="scroll" tabindex="0" aria-label="Newsletter Macabla Talks del Día de la Madre"><img src="nl-talks-madre.jpg" alt="Newsletter Macabla Talks del Día de la Madre"></div></article>
+      <article class="nl" data-k="editorial"><span class="mono muted">Editorial · Macabla Talks</span><h3>Entrevista a @blancapcr</h3><div class="scroll" tabindex="0" aria-label="Newsletter Macabla Talks en un estudio"><img src="nl-talks-blanca.jpg" alt="Newsletter Macabla Talks con una creativa"></div></article>
+      <article class="nl" data-k="evento"><span class="mono muted">Evento · Londres</span><h3>Pop-up en Londres</h3><div class="scroll" tabindex="0" aria-label="Newsletter del pop-up de Londres"><img src="nl-london.jpg" alt="Newsletter del evento pop-up en Londres"></div></article>
+      <article class="nl" data-k="coleccion"><span class="mono muted">Colección SS26 · Drop Blush</span><h3>Looks prenda a prenda</h3><div class="scroll" tabindex="0" aria-label="Newsletter del drop Blush"><img src="nl-blush.jpg" alt="Newsletter con looks desglosados del drop Blush"></div></article>
+      <article class="nl" data-k="coleccion"><span class="mono muted">Colección SS26</span><h3>Looks para eventos de verano</h3><div class="scroll" tabindex="0" aria-label="Newsletter de looks para eventos de verano"><img src="nl-summer.jpg" alt="Newsletter de looks para eventos de verano"></div></article>
+    </div>
+    <div class="band stack" style="gap:24px" id="flujos">
+      <span class="eyebrow">Klaviyo</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Flujos automatizados</h2>
+      <p class="lede">Además de las newsletters, se montan flujos que se activan según lo que hace cada persona. Segmento por propiedades, comportamiento e idioma, y con cada drop actualizo las fotos de todos los flujos.</p>
+      <div class="flows">
+        <div class="stage"><span class="mono muted">Captar</span>
+          <div class="frow"><span class="trig">Se suscribe</span><span class="ar" aria-hidden="true">→</span><div><strong>Bienvenida</strong><p class="muted">Descuento de bienvenida y recordatorio si no compra.</p></div></div>
+          <div class="frow"><span class="trig">Se apunta a un coming soon dentro de un producto</span><span class="ar" aria-hidden="true">→</span><div><strong>Lista de espera</strong><p class="muted">Aviso el día que el producto entra en stock.</p></div></div>
+        </div>
+        <div class="stage"><span class="mono muted">Recuperar</span>
+          <div class="frow"><span class="trig">Ve un producto</span><span class="ar" aria-hidden="true">→</span><div><strong>Producto visto</strong><p class="muted">Le recuerda el producto que estuvo mirando.</p></div></div>
+          <div class="frow"><span class="trig">Deja el carrito</span><span class="ar" aria-hidden="true">→</span><div><strong>Carrito abandonado</strong><p class="muted">Le devuelve a su carrito.</p></div></div>
+          <div class="frow"><span class="trig">No termina el pago</span><span class="ar" aria-hidden="true">→</span><div><strong>Checkout abandonado</strong><p class="muted">Le ayuda a terminar la compra.</p></div></div>
+        </div>
+        <div class="stage dark"><span class="mono">Fidelizar</span>
+          <div class="frow"><span class="trig">Compra</span><span class="ar" aria-hidden="true">→</span><div><strong>Postcompra según el producto</strong><p class="muted">Cada tipo de producto tiene su flujo. Por ejemplo, quien compra una joya recibe cómo cuidarla para que se conserve.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page gut" id="early-access" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Caso · Drop Knit 01</span>
+      <h2>Early access</h2>
+      <p class="lede">Antes del lanzamiento de Knit 01 abrí una lista de espera con acceso anticipado. Capté leads desde tres puntos, todos adaptados a cada mercado e idioma, y cada lead entraba ordenado en Klaviyo.</p>
+    </div>
+
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Tres formas de captar leads</span>
+      <div class="sources">
+        <div class="src">
+          <div class="img contain"><img src="ad2-lead-1.png" alt="Anuncio de Meta para captar leads con formulario" loading="lazy" style="width:auto;max-height:100%;object-fit:contain"></div>
+          <h3>Formulario de Meta</h3>
+          <p class="muted">Campaña de captación de leads con formulario nativo, sin salir de Instagram o Facebook.</p>
+        </div>
+        <div class="src">
+          <div class="img contain"><img src="popup-knit.jpg" alt="Pop-up Join Knit Waitlist en ordenador y en móvil" loading="lazy"></div>
+          <h3>Pop-up a pantalla completa</h3>
+          <p class="muted">En la web, ocupando toda la pantalla para captar la atención, en ordenador y en móvil, con cuenta atrás hasta el lanzamiento.</p>
+        </div>
+        <div class="src">
+          <div class="img"><img src="landing-knit.jpg" alt="Landing Join Knitwear Waitlist" loading="lazy"></div>
+          <h3>Landing para compartir</h3>
+          <p class="muted">Una página con su propio enlace para que Comunicación pudiera compartirla en sus canales.</p>
+        </div>
+      </div>
+      <div class="klaviyo">Todos los leads entran en Klaviyo, ordenados por mercado e idioma</div>
+    </div>
+
+    <div class="band stack" style="gap:28px">
+      <span class="eyebrow">El flujo</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Del lead a la compra</h2>
+      <div class="flowline">
+        <div class="mail">
+          <span class="mono muted">Email 1 · al suscribirse</span>
+          <h3>Bienvenida y 10% de descuento</h3>
+          <img src="email-bienvenida.jpg" alt="Email de bienvenida a la lista de espera de Knitwear" loading="lazy">
+        </div>
+        <div class="wait"><span class="line"></span><b>5 días</b><span class="mono muted">sin compra</span><span class="line"></span></div>
+        <div class="mail">
+          <span class="mono muted">Email 2 · a los 5 días</span>
+          <h3>El código caduca pronto</h3>
+          <img src="email-recordatorio.jpg" alt="Email recordatorio de que el código caduca" loading="lazy">
+        </div>
+      </div>
+      <div class="branch">
+        <div><strong>Si compra</strong><p class="muted">Sale del flujo.</p></div>
+        <div><strong>Si no compra</strong><p class="muted">Recibe el recordatorio de que el código caduca, para generar urgencia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTERS -->
+<!-- PAID -->
+<section class="page gut" id="paid" data-page hidden>
+  <div class="wrap stack" style="gap:40px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Adquisición</span>
+      <h2>Paid media</h2>
+      <p class="lede">Así planteo las campañas alrededor de un drop: antes del lanzamiento, awareness y leads; el día del drop, retargeting y ventas. Cada campaña, adaptada a su mercado e idioma.</p>
+      <div class="channels"><span class="chip">Meta Ads</span><span class="chip">Pinterest Ads</span><span class="chip">Google Ads</span></div>
+    </div>
+
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Todo conectado</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Trabajo a través de las audiencias</h2>
+      <p class="lede">Las audiencias son la pieza más importante del funnel: conectan todo. El píxel de la web y Klaviyo las alimentan, deciden a quién le llega cada campaña, y cada campaña devuelve datos al sistema.</p>
+      <div class="eco" role="img" aria-label="Esquema: el píxel y Klaviyo alimentan las audiencias, que activan las campañas, que llevan a la landing, a la web o a Klaviyo y vuelven a alimentar las audiencias">
+        <div class="eco-col">
+          <span class="mono muted">Datos</span>
+          <div class="node"><strong>Píxel en la web</strong><p>Visitas, productos vistos, carritos y compras.</p></div>
+          <div class="node"><strong>Klaviyo</strong><p>Leads, suscriptores y clientes, por mercado e idioma.</p></div>
+        </div>
+        <div class="eco-arrow" aria-hidden="true">→</div>
+        <div class="eco-col">
+          <span class="mono muted">Audiencias</span>
+          <div class="node dark"><strong>Audiencias</strong>
+            <ul><li>Audiencias propias</li><li>Audiencias similares</li><li>Según el comportamiento</li></ul>
+          </div>
+        </div>
+        <div class="eco-arrow" aria-hidden="true">→</div>
+        <div class="eco-col">
+          <span class="mono muted">Campañas</span>
+          <div class="node"><span class="mono muted">Antes del drop</span><strong>Awareness y prospecting</strong></div>
+          <div class="node"><span class="mono muted">Antes del drop</span><strong>Captación de leads</strong></div>
+          <div class="node accent"><span class="mono">Cuando se lanza el drop</span><strong>Retargeting y ventas</strong></div>
+        </div>
+        <div class="eco-arrow" aria-hidden="true">→</div>
+        <div class="eco-col">
+          <span class="mono muted">Destino</span>
+          <div class="node"><strong>Formulario de Meta</strong><p>El lead entra en Klaviyo y salta su flujo.</p></div>
+          <div class="node"><strong>Landing</strong><p>Suscripción en la web.</p></div>
+          <div class="node"><strong>Web y catálogo</strong><p>Ficha de producto y New In.</p></div>
+        </div>
+      </div>
+      <div class="loopback"><span aria-hidden="true">↺</span> Cada visita, lead o compra vuelve al píxel y a Klaviyo, y actualiza las audiencias para la siguiente campaña.</div>
+    </div>
+
+    <div>
+      <div class="adgroup">
+        <div class="head"><h3>Awareness y prospecting</h3></div>
+        <p class="muted" style="max-width:62ch">Suelen ser vídeos que anuncian la campaña y contenido que eleva la marca, para llegar a público nuevo antes del drop.</p>
+        <div class="ads">
+          <figure class="ad"><img src="ad2-aw-jerseys.png" alt="Anuncio de marca con jerseys de colores doblados"></figure>
+          <figure class="ad"><img src="ad2-aw-joyas.png" alt="Anuncio de marca con charms y anillos"></figure>
+          <figure class="ad"><img src="ad2-aw-gris.png" alt="Anuncio de marca con cárdigan gris"></figure>
+          <figure class="ad"><img src="ad2-aw-top.png" alt="Anuncio de marca con top marrón"></figure>
+        </div>
+      </div>
+      <div class="adgroup">
+        <div class="head"><h3>Captación de leads</h3></div>
+        <p class="muted" style="max-width:62ch">Llevan al formulario de Meta o a la landing de la web. El mensaje resume lo que gana quien se suscribe: 10% de descuento, early access a los lanzamientos, promociones y ventas privadas, y novedades en su email.</p>
+        <div class="ads">
+          <figure class="ad"><img src="ad2-lead-1.png" alt="Anuncio de captación de leads con cárdigan marrón"></figure>
+          <figure class="ad"><img src="ad2-lead-2.png" alt="Anuncio de captación de leads con cárdigan azul"></figure>
+          <figure class="ad"><img src="ad2-lead-3.png" alt="Anuncio de captación de leads con look azul y rojo"></figure>
+        </div>
+      </div>
+      <div class="adgroup">
+        <div class="head"><h3>Ventas y retargeting</h3></div>
+        <p class="muted" style="max-width:62ch">Con el drop ya publicado, los looks y el producto llevan directamente a la colección y a la ficha.</p>
+        <div class="ads">
+          <figure class="ad"><img src="ad2-ventas-rayas.png" alt="Anuncio de ventas con traje de rayas"></figure>
+          <figure class="ad"><img src="ad2-ventas-granate.png" alt="Anuncio de ventas con cárdigan y pantalón granate"></figure>
+          <figure class="ad"><img src="ad2-ventas-balaclava.png" alt="Anuncio de ventas con balaclava granate"></figure>
+          <figure class="ad"><img src="ad2-ventas-micropana.png" alt="Anuncio de ventas con traje de micropana"></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LONDRES -->
+
+
+<!-- DATOS -->
+<section class="page gut" id="datos" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Análisis</span>
+      <h2>Datos e IA</h2>
+      <p class="lede">Las decisiones de la tienda salen de cruzar los datos de todas las plataformas. Trabajo con los informes de Shopify, Meta y Klaviyo y con Microsoft Clarity, y uso la IA para unirlo todo y encontrar oportunidades y soluciones.</p>
+    </div>
+
+    <div class="eco" role="img" aria-label="Esquema: Shopify, Meta, Klaviyo y Clarity se cruzan con IA para obtener informes y decisiones">
+      <div class="eco-col">
+        <span class="mono muted">Fuentes</span>
+        <div class="node"><strong>Shopify</strong><p>Ventas, conversión y rendimiento por mercado.</p></div>
+        <div class="node"><strong>Meta</strong><p>Resultados de las campañas y las audiencias.</p></div>
+        <div class="node"><strong>Klaviyo</strong><p>Resultados de las newsletters, los flujos y el crecimiento de los segmentos.</p></div>
+        <div class="node"><strong>Microsoft Clarity</strong><p>Mapas de calor y grabaciones de sesión.</p></div>
+      </div>
+      <div class="eco-arrow" aria-hidden="true">→</div>
+      <div class="eco-col">
+        <span class="mono muted">Cruce</span>
+        <div class="node dark"><strong>IA · Claude</strong>
+          <ul><li>Conectada a las cuatro plataformas</li><li>Cruza los datos entre ellas</li><li>Detecta patrones y oportunidades</li><li>Agiliza informes y tareas recurrentes</li></ul>
+        </div>
+      </div>
+      <div class="eco-arrow" aria-hidden="true">→</div>
+      <div class="eco-col">
+        <span class="mono muted">Resultado</span>
+        <div class="node"><strong>Informes y trackers</strong><p>Seguimiento de KPIs para tomar decisiones.</p></div>
+        <div class="node"><strong>Decisiones</strong><p>Qué destacar en la web, qué recomendar y dónde invertir en campañas.</p></div>
+      </div>
+      <div class="eco-arrow" aria-hidden="true">→</div>
+      <div class="eco-col">
+        <span class="mono muted">Mejora</span>
+        <div class="node accent"><strong>Web y checkout</strong><p style="color:inherit;opacity:.8">Cambios para quitar fricción en el recorrido de compra.</p></div>
+        <div class="node"><strong>Campañas y emails</strong><p>Ajustes en audiencias, mensajes y calendario.</p></div>
+      </div>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Qué miro</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Señales que reviso</h2>
+      <div class="signals">
+        <div class="sg"><span class="mono muted">Clarity · comportamiento</span><ul>
+          <li><strong>Dead clicks:</strong> clics en elementos que no son enlaces.</li>
+          <li><strong>Rage clicks:</strong> clics repetidos en un punto, señal de frustración.</li>
+          <li><strong>Quick backs:</strong> señal de que no encontró lo que esperaba.</li>
+          <li><strong>Profundidad de scroll:</strong> hasta dónde baja la gente en la home y la parrilla.</li>
+          <li><strong>Móvil y ordenador:</strong> diferencias de comportamiento por dispositivo.</li>
+        </ul></div>
+        <div class="sg"><span class="mono muted">Shopify · producto y venta</span><ul>
+          <li>Productos con muchas visitas y poca conversión.</li>
+          <li>Productos que se añaden al carrito pero se compran poco.</li>
+          <li>Búsquedas sin resultado en el buscador.</li>
+          <li>Conversión por mercado.</li>
+        </ul></div>
+        <div class="sg"><span class="mono muted">Cruzando plataformas</span><ul>
+          <li><strong>Campaña y web:</strong> tráfico que llega pero no convierte.</li>
+          <li><strong>Email y web:</strong> productos con clics en la newsletter que no se compran.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Antes de lanzar una campaña</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Los KPIs que fijo primero</h2>
+      <p class="lede">Antes de activar una campaña establezco los límites para que sea rentable en todo momento.</p>
+      <div class="kpis">
+        <div><b>ROAS</b><span class="mono muted">Retorno de la inversión publicitaria</span><p class="muted">Para fijar el mínimo que tiene que devolver cada campaña para ser rentable.</p></div>
+        <div><b>CPA máximo</b><span class="mono muted">Coste por adquisición</span><p class="muted">Lo calculo en función del coste total del producto, para saber cuánto se puede pagar por cada venta sin perder rentabilidad.</p></div>
+        <div><b>MER</b><span class="mono muted">Marketing efficiency ratio</span><p class="muted">Para tener la visión global de la inversión en marketing, más allá de cada campaña.</p></div>
+      </div>
+    </div>
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">En el día a día</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Los KPIs que sigo</h2>
+      <p class="lede">Cada indicador está conectado con una parte del trabajo.</p>
+      <div class="kpi-grid">
+        <a href="#ficha"><b>AOV</b><span class="mono muted">Ticket medio</span><p class="muted">Para medir el efecto del cross-selling de Completa tu look y recomendados.</p><span class="arrow">Ficha de producto →</span></a>
+        <a href="#new-in"><b>CR</b><span class="mono muted">Tasa de conversión</span><p class="muted">Para seguir cómo convierte la web y cada mercado.</p><span class="arrow">New In →</span></a>
+        <a href="#paid"><b>CAC</b><span class="mono muted">Coste de adquisición de cliente</span><p class="muted">Para controlar cuánto cuesta conseguir cada cliente nuevo.</p><span class="arrow">Paid media →</span></a>
+        <a href="#newsletters"><b>LTV</b><span class="mono muted">Valor de vida del cliente</span><p class="muted">Para medir el trabajo de los flujos de Klaviyo, sobre todo el de postcompra.</p><span class="arrow">Flujos →</span></a>
+        <a href="#early-access"><b>CPL</b><span class="mono muted">Coste por lead</span><p class="muted">Para controlar las campañas de captación y el early access.</p><span class="arrow">Early access →</span></a>
+        <a href="#paid"><b>CTR</b><span class="mono muted">Y frecuencia</span><p class="muted">Para saber si un anuncio interesa y controlar cuántas veces lo ve cada persona.</p><span class="arrow">Paid media →</span></a>
+        <a href="#ficha"><b>Devoluciones</b><span class="mono muted">Tasa de devoluciones</span><p class="muted">Para comprobar si la guía de tallas y la ficha ayudan a acertar con la compra.</p><span class="arrow">Ficha de producto →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MI -->
+<section class="page gut" id="sobre-mi" data-page hidden>
+  <div class="wrap stack" style="gap:56px">
+    <div class="about-hero">
+      <img class="me" src="marina.png" alt="Marina Monterrubio Gras">
+      <div class="stack" style="gap:24px">
+        <span class="eyebrow">Sobre mí</span>
+        <h2>Marina Monterrubio Gras</h2>
+        <p class="role mono">E-commerce Specialist · Madrid</p>
+        <p class="lede">Me dedico al e-commerce de moda. He llevado de forma integral la tienda online internacional en Shopify de Macabla, marca española de moda y joyería: de la planificación comercial y los lanzamientos al catálogo, el CRM con Klaviyo, el paid media y el análisis de resultados. Soy organizada, analítica y creativa, y me gusta seguir cada lanzamiento de principio a fin.</p>
+      </div>
+    </div>
+
+    <div class="cv">
+      <div class="cv-main stack" style="gap:40px">
+        <div class="stack" style="gap:8px"><span class="eyebrow">Experiencia</span></div>
+
+        <article class="job">
+          <div class="job-head"><h3>Macabla</h3><span class="mono muted">Moda femenina y joyería · Madrid</span></div>
+          <div class="roles">
+            <div><strong>E-commerce &amp; Paid Media Manager</strong><span class="mono muted">Feb. 2026 – Nov. 2026</span></div>
+            <div><strong>E-commerce Intern</strong><span class="mono muted">Sept. 2025 – Feb. 2026</span></div>
+          </div>
+          <ul>
+            <li><b>Gestión integral de la tienda online (Shopify):</b> catálogo y fichas de producto en varios mercados e idiomas, merchandising, stock, promociones e integración con apps y canales de venta.</li>
+            <li><b>Estrategia comercial y lanzamientos:</b> calendario comercial y un drop semanal, coordinando con Comunicación, Diseño, Compras y Logística hasta la puesta en marcha en la web.</li>
+            <li><b>Análisis de negocio:</b> seguimiento de ventas, conversión, rentabilidad y rendimiento por mercado, con informes y trackers. Mejora de la web y el checkout con Microsoft Clarity.</li>
+            <li><b>CRM y email marketing (Klaviyo):</b> newsletters, segmentación por propiedades y comportamiento, formularios de captación y flujos automatizados.</li>
+            <li><b>Paid media (Meta, Google y Pinterest Ads):</b> awareness, captación de leads, retargeting y ventas por mercado, con catálogos para anuncios dinámicos.</li>
+            <li><b>IA aplicada al negocio:</b> Claude conectado a Shopify, Klaviyo, Meta Ads y Clarity para cruzar datos y agilizar informes.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3>BLUELOW</h3><span class="mono muted">Moda femenina y accesorios · Madrid</span></div>
+          <div class="roles">
+            <div><strong>Community Manager</strong><span class="mono muted">Abr. 2025 – Sept. 2025</span></div>
+            <div><strong>Community Manager (prácticas)</strong><span class="mono muted">Sept. 2024 – Abr. 2025</span></div>
+          </div>
+          <ul>
+            <li>Apoyo en la tienda online en Shopify y gestión de campañas de email marketing con Klaviyo.</li>
+            <li>Gestión de redes sociales, asistencia a los shootings y organización de eventos con influencers y prensa.</li>
+          </ul>
+        </article>
+
+        <div class="stack" style="gap:20px">
+          <span class="eyebrow">Formación</span>
+          <div class="edu">
+            <div><strong>Grado en Publicidad y Relaciones Públicas</strong><span class="muted">Universidad Complutense de Madrid · Facultad de Ciencias de la Información</span><span class="mono muted">2021 – 2025</span></div>
+            <div><strong>Erasmus</strong><span class="muted">Karlshochschule International University · Karlsruhe, Alemania</span><span class="mono muted">Sept. 2023 – Jun. 2024</span></div>
+          </div>
+          <span class="mono muted" style="margin-top:8px">Otros cursos</span>
+          <div class="courses">
+            <div><span>E-commerce y Gestión Digital</span><span class="muted">IE · 2024</span></div>
+            <div><span>Desarrollo Profesional en Marketing Digital con Google: SEO, SEM y Analytics</span><span class="muted">En curso</span></div>
+            <div><span>Marketing Digital</span><span class="muted">University of Chicago · 2024</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="cv-side">
+        <div class="side-block"><span class="eyebrow">Competencias</span><ul class="plain">
+          <li>Gestión de tiendas online</li><li>Planificación comercial y lanzamientos</li><li>CRM y automatizaciones de email</li><li>Análisis de KPIs y embudo de conversión</li><li>Creatividad aplicada al e-commerce</li></ul></div>
+        <div class="side-block"><span class="eyebrow">Herramientas</span>
+          <dl>
+            <dt>E-commerce y CRM</dt><dd>Shopify, Klaviyo</dd>
+            <dt>Analítica y UX</dt><dd>Microsoft Clarity, Excel</dd>
+            <dt>Paid media</dt><dd>Meta Ads, Google Ads, Pinterest Ads</dd>
+            <dt>IA</dt><dd>Claude, ChatGPT</dd>
+            <dt>Diseño</dt><dd>Adobe Photoshop, Illustrator, Canva</dd>
+            <dt>Ofimática</dt><dd>Excel, PowerPoint</dd>
+          </dl></div>
+        <div class="side-block"><span class="eyebrow">Idiomas</span>
+          <dl>
+            <dt>Español</dt><dd>Nativo</dd>
+            <dt>Inglés</dt><dd>B2 · First Cambridge</dd>
+            <dt>Alemán</dt><dd>A2 · Karlshochschule</dd>
+          </dl></div>
+        <div class="side-block"><span class="eyebrow">Otros</span><p class="muted" style="font-size:15px">Voluntariado · Hospital Fundación San José (2017 – 2019)</p></div>
+        <div class="side-block"><span class="eyebrow">Contacto</span>
+          <p style="font-size:15px;user-select:all">marina.monterrubiogras@gmail.com</p>
+          <a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener" style="font-size:15px">linkedin.com/in/marina-monterrubio-gras</a></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADOS -->
+<section class="page gut" id="mercados" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Internacional</span>
+      <h2>Mercados</h2>
+      <p class="lede">La tienda vendía en varios mercados, en español e inglés. Agrupaba los mercados según sus propiedades, y todo lo demás se adaptaba a partir de esa estructura.</p>
+    </div>
+    <div class="stack" style="gap:16px">
+      <span class="mono muted">Los mercados se agrupan por</span>
+      <div class="kpis">
+        <div><b>Precio</b><p class="muted">Precios adaptados a cada grupo de mercados.</p></div>
+        <div><b>Moneda</b><p class="muted">Cada cliente compra en su moneda.</p></div>
+        <div><b>Envío</b><p class="muted">Métodos de envío según el destino.</p></div>
+      </div>
+    </div>
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Lo que se adapta</span>
+      <div class="flow">
+        <div><span class="mono muted">Web</span><strong>Dos idiomas</strong><p class="muted">Tienda, fichas y descripciones en español e inglés.</p></div>
+        <div><span class="mono muted">Klaviyo</span><strong>Por idioma</strong><p class="muted">Leads y newsletters ordenados por mercado e idioma.</p></div>
+        <div><span class="mono muted">Paid media</span><strong>Por mercado</strong><p class="muted">Campañas y textos adaptados a cada mercado.</p></div>
+        <div><span class="mono" style="color:var(--ink)">Caso</span><strong>Reino Unido</strong><p class="muted">Mercado propio para el pop-up de Londres. <a href="#londres">Ver caso →</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="page gut" id="coming-soon" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">CRM · Lista de espera</span>
+      <h2>Coming soon</h2>
+      <p class="lede">Cuando una referencia no llega a tiempo para su drop, o se agota y está prevista una reposición, se queda publicada en la web como coming soon. La espera se convierte en demanda.</p>
+    </div>
+    <div class="cs">
+      <div><span class="mono muted">1</span><strong>El producto no llega o se agota</strong><p class="muted">La referencia no entra en stock a tiempo para el drop, o se agota y está prevista una reposición.</p></div>
+      <div><span class="mono muted">2</span><strong>Se publica como coming soon</strong><p class="muted">Aparece en la web con la opción de apuntarse a la lista de espera. Se genera necesidad y una cola para comprarlo, y puede convertirse en un producto muy demandado.</p></div>
+      <div><span class="mono muted">3</span><strong>Llega y entra en stock</strong><p class="muted">El día que llega, se activa el stock en la web.</p></div>
+      <div class="d"><span class="mono">4</span><strong>El flujo avisa</strong><p>Klaviyo avisa a toda la lista de espera, lo que lo convierte en un flujo con una buena conversión.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="page gut" id="proceso" data-page hidden>
+  <div class="wrap stack" style="gap:56px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Estrategia</span>
+      <h2>Lanzamiento de drops</h2>
+      <p class="lede">Cada drop tiene su propio ciclo. Según el número de referencias, ajusto los tiempos y monto el calendario a partir de ellos. Como ejemplo, así se organiza un ciclo de cuatro semanas.</p>
+    </div>
+
+    <div class="weeks">
+      <div class="week"><span class="mono muted">Semana 1</span><h3>Planificación</h3><ul><li>Recibo de Diseño y Compras las referencias y sus tiempos de entrega, y organizo los drops por semanas.</li><li>Empiezo a crear los productos en Shopify.</li></ul></div>
+      <div class="week"><span class="mono muted">Semana 2</span><h3>Briefing y shooting</h3><ul><li>Redacto el briefing con todo lo que necesito para lanzar el drop y lo comparto con Comunicación para que hagan el shooting.</li><li>También lo reciben el resto de equipos, con necesidades como la guía de tallas o los cuidados.</li></ul></div>
+      <div class="week"><span class="mono muted">Semana 3</span><h3>Montaje e-commerce</h3><ul><li>Subo las fotos a la web.</li><li>Monto la home y la preview de la parrilla New In.</li><li>Preparo el contenido para paid media y newsletters.</li><li>Arranca el pre-lanzamiento y, si lo hay, el early access.</li></ul></div>
+      <div class="week d"><span class="mono">Semana 4</span><h3>Drop y análisis</h3><ul><li>Lanzamiento en la web, newsletter a toda la base por idioma y campañas de retargeting y ventas.</li><li>Actualizo las fotos de los flujos de Klaviyo.</li><li>Refuerzo segmentado a los dos días.</li><li>Análisis post lanzamiento: ventas, conversión, resultados de email y paid y aprendizajes para el siguiente drop.</li></ul></div>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Drops en paralelo</span>
+      <h2 style="font-size:clamp(34px,5vw,64px)">Los ciclos se solapan</h2>
+      <p class="lede">Los ciclos se solapan y los drops tienen que ir conviviendo unos con otros. El análisis no termina con el lanzamiento: es constante.</p>
+      <div class="gantt-box" role="region" aria-label="Calendario de tres drops solapados" tabindex="0">
+        <div class="gantt">
+          <div class="h"></div><div class="h">Sem. 1</div><div class="h">Sem. 2</div><div class="h">Sem. 3</div><div class="h">Sem. 4</div><div class="h">Sem. 5</div><div class="h">Sem. 6</div><div class="h">Sem. 7</div>
+          <div class="lbl">Leather and lines</div><div class="seg s-plan">Planificación</div><div class="seg s-shoot">Briefing y shooting</div><div class="seg s-build">Montaje</div><div class="seg s-drop">Drop</div><div class="seg s-an">Análisis</div><div class="seg s-an">Análisis</div><div class="seg s-an">Análisis</div>
+          <div class="lbl">Knit 01</div><div></div><div class="seg s-plan">Planificación</div><div class="seg s-shoot">Briefing y shooting</div><div class="seg s-build">Montaje</div><div class="seg s-drop">Drop</div><div class="seg s-an">Análisis</div><div class="seg s-an">Análisis</div>
+          <div class="lbl">Outwear</div><div></div><div></div><div class="seg s-plan">Planificación</div><div class="seg s-shoot">Briefing y shooting</div><div class="seg s-build">Montaje</div><div class="seg s-drop">Drop</div><div class="seg s-an">Análisis</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Semana 1</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Briefing e-commerce</h2>
+      <div class="build">
+        <img class="briefing-img" src="briefing-outwear-2.jpg" alt="Briefing del drop Outwear con las referencias del drop y los productos añadidos">
+        <div class="why">
+          <div><strong>Referencias</strong><p class="muted">Las prendas del drop y, aparte, los productos añadidos: best sellers y referencias que se van quedando atrás, a las que se les da una vuelta con nuevo contenido. Añadimos características como el PVP y la compra inicial, para que el equipo sepa la profundidad del drop.</p></div>
+          <div><strong>Contenido</strong><p class="muted">Siluetas, fotos e-commerce, campaña y contenido orgánico, con sus medidas y formatos correspondientes para la web, las newsletters y paid media.</p></div>
+          <div><strong>Detalles a cuidar</strong><p class="muted">Características especiales de cada prenda, como el tejido del punto, las etiquetas bordadas en primer plano y los bordados de los accesorios.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Cuando llega el contenido</span>
+      <h2 style="font-size:clamp(34px,5vw,64px)">Del shooting a la web</h2>
+      <div class="flow">
+        <div><span class="mono muted">Paso 1</span><strong>Ordeno y divido</strong><p class="muted">Foto silueta, e-commerce, campaña y orgánico.</p></div>
+        <div><span class="mono muted">Paso 2</span><strong>Subo las fotos</strong><p class="muted">Cada foto a su producto en Shopify.</p></div>
+        <div><span class="mono muted">Paso 3</span><strong>Home y New In</strong><p class="muted">Monto la home y la preview de la parrilla.</p></div>
+        <div><span class="mono" style="color:var(--accent)">Paso 4</span><strong>Paid y newsletters</strong><p class="muted">Preparo el contenido para campañas y emails.</p></div>
+      </div>
+    </div>
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Cuando se lanza el drop</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Checklist de lanzamiento</h2>
+      <p class="lede">Cada drop sale con una checklist, para que no se escape nada.</p>
+      <ul class="check">
+        <li>Productos publicados, con todas sus fotos y en orden</li>
+        <li>Fichas con descripción, guía de tallas y traducción al inglés</li>
+        <li>Precios revisados en cada mercado</li>
+        <li>Home y parrilla New In actualizadas</li>
+        <li>Completa tu look y productos recomendados</li>
+        <li>Newsletter programada en español e inglés</li>
+        <li>Campañas de retargeting y ventas activas</li>
+        <li>Fotos de los flujos de Klaviyo actualizadas</li>
+        <li>Información del drop enviada a Glovo y a las tiendas</li>
+      </ul>
+    </div>
+
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Todos los canales</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Alineados con cada drop</h2>
+      <div class="two">
+        <div class="opt"><span class="mono">Glovo</span><h3>Información de cada lanzamiento</h3><p class="muted">Con cada drop les envío la información para que su catálogo esté alineado con la web.</p></div>
+        <div class="opt"><span class="mono">Tiendas físicas</span><h3>La misma información</h3><p class="muted">Las tiendas reciben también los datos del drop para ir todos a la vez.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page gut" id="londres" data-page hidden>
+  <div class="wrap stack" style="gap:48px">
+    <div class="stack" style="gap:20px">
+      <span class="eyebrow">Caso · Octubre 2026</span>
+      <h2>Pop-up en Londres</h2>
+      <p class="lede">Durante la primera quincena de octubre, Macabla abrió un pop-up físico en Londres acompañado de una estrategia online en paralelo. No era solo un evento: era la entrada de la marca en Reino Unido.</p>
+    </div>
+    <div class="two">
+      <div class="opt"><span class="mono">Objetivo 1</span><h3>Abrir el mercado de Reino Unido</h3><p class="muted">Preparar la web para vender en Reino Unido y dar a conocer la marca allí.</p></div>
+      <div class="opt"><span class="mono">Objetivo 2</span><h3>Llevar gente al pop-up</h3><p class="muted">Usar paid media para atraer público al espacio físico.</p></div>
+    </div>
+    <div class="band stack" style="gap:24px">
+      <span class="eyebrow">Online y offline a la vez</span>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Una estrategia completa alrededor del evento</h2>
+      <div class="flow" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div><span class="mono muted">Web · Shopify</span><strong>Reino Unido como mercado</strong><p class="muted">Mercado propio con precios adaptados y una selección de productos destacados, elegidos según el tipo de cliente y el clima de Reino Unido.</p></div>
+        <div><span class="mono muted">Paid media</span><strong>Campañas por ubicación</strong><p class="muted">Segmentadas geográficamente para atraer gente al pop-up y dar a conocer la marca en Reino Unido.</p></div>
+        <div><span class="mono" style="color:var(--ink)">Klaviyo</span><strong>Segmento de Reino Unido y Londres</strong><p class="muted">Comunicaciones específicas para anunciar el evento antes y contarlo después.</p></div>
+      </div>
+    </div>
+    <div class="stack" style="gap:24px">
+      <div class="stack" style="gap:12px;max-width:640px"><h3>Newsletter del evento durante el pop-up</h3><p class="muted">Enviada mientras el pop-up estaba abierto, cuenta el evento con fotos del ambiente y de las invitadas, y dirige el tráfico de vuelta a la web.</p></div>
+      <div class="nl" style="max-width:640px"><div class="scroll" tabindex="0" aria-label="Newsletter del pop-up de Londres" style="max-height:760px"><img src="nl-london.jpg" alt="Newsletter del pop-up de Londres"></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="gut" id="contacto">
+  <div class="wrap">
+    <div class="contact"><span>marina.monterrubiogras@gmail.com</span><a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener">linkedin.com/in/marina-monterrubio-gras</a></div>
+    <span class="muted">Imágenes: Macabla</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var views={inicio:["inicio"],"m-estrategia":["proceso","londres"],"m-shopify":["new-in","drops","ficha","mercados"],"m-klaviyo":["newsletters","early-access","coming-soon"],"m-paid":["paid"],"m-datos":["datos"],bluelow:["bluelow"],"sobre-mi":["sobre-mi"]};
+  var tabs=[["m-estrategia","Estrategia"],["m-shopify","Shopify"],["m-klaviyo","Klaviyo"],["m-paid","Paid media"],["m-datos","Clarity e IA"]];
+  var viewOf={};Object.keys(views).forEach(function(v){views[v].forEach(function(s){viewOf[s]=v})});
+  document.querySelectorAll("[data-f]").forEach(function(b){
+    b.addEventListener("click",function(){
+      var f=b.getAttribute("data-f");
+      document.querySelectorAll("[data-f]").forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});
+      document.querySelectorAll(".nl").forEach(function(n){n.hidden=!(f==="all"||n.getAttribute("data-k")===f)});
+    });
+  });
+  document.querySelectorAll("[data-tab]").forEach(function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll("[data-tab]").forEach(function(o){
+        var on=o===b;o.setAttribute("aria-selected",on?"true":"false");
+        var p=document.getElementById(o.getAttribute("data-tab"));if(p)p.hidden=!on;
+      });
+    });
+  });
+  var anchors={"d-outwear":"new-in","d-knit":"new-in","d-leather":"new-in"};
+  function show(){
+    var h=(location.hash||"").replace("#","");
+    if(h==="contacto"){var f=document.getElementById("contacto");if(f)f.scrollIntoView();return;}
+    var target=null,view;
+    if(views[h])view=h;
+    else if(viewOf[h]){view=viewOf[h];if(views[view][0]!==h)target=h;}
+    else if(anchors[h]){view=viewOf[anchors[h]];target=h;}
+    else view="inicio";
+    var on=views[view];
+    document.querySelectorAll("[data-page]").forEach(function(s){s.hidden=on.indexOf(s.id)<0});
+    var g=view.indexOf("m-")===0?"macabla":(view==="bluelow"?"bluelow":(view==="sobre-mi"?"sobre":""));
+    document.querySelectorAll(".nav [data-g]").forEach(function(a){
+      if(a.getAttribute("data-g")===g)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+    });
+    var sn=document.getElementById("subnav"),si=document.getElementById("subnav-in");
+    if(g==="macabla"){
+      si.innerHTML="";
+      tabs.forEach(function(t){var a=document.createElement("a");a.href="#"+t[0];a.textContent=t[1];if(t[0]===view)a.setAttribute("aria-current","page");si.appendChild(a)});
+      sn.hidden=false;
+    } else sn.hidden=true;
+    if(target){var el=document.getElementById(target);if(el)el.scrollIntoView();}
+    else window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange",show);
+  show();
+})();
+</script>
