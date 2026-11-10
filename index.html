@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marina Monterrubio Portfolio</title>
+<title>Marina Monterrubio · Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: minimal fashion e-commerce look, all Helvetica, monochrome. Each "page" is a hash route; drops read top-down like the New In grid (newest first). */
@@ -238,10 +238,10 @@ section.page{padding-block:48px 96px}
 .kpis div:first-child{border-left:0}
 .kpis b{font-size:clamp(36px,4.6vw,60px);font-weight:400;letter-spacing:-.03em;line-height:1}
 @media (max-width:880px){.signals,.kpis{grid-template-columns:minmax(0,1fr)}.kpis div{border-left:0;border-top:1px solid var(--ink)}.kpis div:first-child{border-top:0}}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .kpi-grid a{border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:8px;text-decoration:none;min-width:0;transition:border-color .2s,background .2s}
 .kpi-grid a:hover{border-color:var(--ink);background:var(--panel)}
-.kpi-grid b{font-size:clamp(30px,3.4vw,44px);font-weight:400;letter-spacing:-.03em;line-height:1}
+.kpi-grid b{font-size:clamp(28px,3vw,40px);font-weight:400;letter-spacing:-.03em;line-height:1}
 .kpi-grid .arrow{margin-top:auto;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
 .about-hero{display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;align-items:end}
 .me{width:240px;aspect-ratio:4/5;object-fit:cover;object-position:center 30%}
@@ -287,10 +287,9 @@ section.page{padding-block:48px 96px}
 .cs div.d{background:var(--ink);color:var(--paper)}
 .cs strong{font-weight:500}
 @media (max-width:980px){.cs{grid-template-columns:minmax(0,1fr)}.cs div{border-left:0;border-top:1px solid var(--ink)}.cs div:first-child{border-top:0}.check{grid-template-columns:minmax(0,1fr)}}
-.mdnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 24px;padding-block:16px 14px;align-items:start}
+.mdnav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px 24px;padding-block:16px 14px;align-items:start}
 .mdnav .col{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
 .mdnav .col.right{align-items:flex-end}
-.navrow{display:flex;gap:20px}
 .mdnav a{font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid transparent;padding-bottom:1px}
 .mdnav a:hover,.mdnav a[aria-current="page"]{border-bottom-color:var(--ink)}
 #inicio{padding-top:8px}
@@ -348,12 +347,38 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
   .drops-strip{grid-template-columns:minmax(0,1fr)}
   .weeks,.flow,.two{grid-template-columns:minmax(0,1fr)}
 }
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr))}
+.tl li{position:relative;display:flex;flex-direction:column;gap:10px;padding-right:28px;min-width:0}
+.tl .dot{width:34px;height:34px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:500;background:var(--paper);position:relative;z-index:1;margin-bottom:8px}
+.tl li::before{content:"";position:absolute;top:17px;left:34px;right:8px;height:1px;background:var(--ink)}
+.tl li::after{content:"";position:absolute;top:13px;right:9px;width:8px;height:8px;border-top:1px solid var(--ink);border-right:1px solid var(--ink);transform:rotate(45deg)}
+.tl li:last-child::before,.tl li:last-child::after{display:none}
+.tl li.on .dot{background:var(--ink);color:var(--paper)}
+.tl p{margin:0;font-size:15px}
+@media (max-width:760px){
+  .tl{grid-template-columns:minmax(0,1fr)}
+  .tl li{padding:0 0 32px 52px}
+  .tl .dot{position:absolute;left:0;top:0;margin:0}
+  .tl li::before{top:34px;left:17px;right:auto;bottom:8px;width:1px;height:auto}
+  .tl li::after{top:auto;bottom:9px;left:13px;right:auto;transform:rotate(135deg)}
+  .tl li:last-child{padding-bottom:0}
+}
+
+.sig1{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.sig1 li{border-top:1px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.sig1 p{margin:0;font-size:15px}
+@media (max-width:760px){.sig1{grid-template-columns:minmax(0,1fr)}}
+[hidden]{display:none!important}
+.mdnav .col:nth-child(2){align-items:center}
+@media (max-width:760px){.mdnav{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important}.mdnav .col:nth-child(2){grid-column:auto!important;grid-row:auto!important}.mdnav .col:nth-child(3){grid-column:auto!important;grid-row:auto!important;align-items:flex-end!important}.mdnav a{font-size:12px;letter-spacing:.1em}}
+.navrow{display:flex;gap:20px}
 </style>
 
 <nav class="nav gut" aria-label="Secciones">
   <div class="wrap mdnav">
-    <div class="col"><a href="#m-estrategia" data-g="macabla">Macabla</a></div>
-    <div class="col"><a href="#bluelow" data-g="bluelow">BLUELOW</a></div>
+    <div class="col"><a href="#m-estrategia" data-g="macabla">Macabla</a><a href="#bluelow" data-g="bluelow">BLUELOW</a></div>
     <div class="col"><a href="#inicio" class="home-link">Portfolio</a></div>
     <div class="col right"><a href="#sobre-mi" data-g="sobre">Sobre mí</a><span class="navrow"><a href="https://www.linkedin.com/in/marina-monterrubio-gras" target="_blank" rel="noopener">LinkedIn</a><a href="en.html" class="lang" lang="en">EN</a></span></div>
   </div>
@@ -373,13 +398,13 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         <div class="cap"><b>Macabla</b><span class="mono muted">2025 – 2026</span></div>
         <p class="muted">E-commerce &amp; Paid Media Manager</p>
         <p>Gestión integral de la tienda online: estrategia comercial, CRM, paid media y análisis de negocio online.</p>
-        <span class="arrow">Ver trabajo →</span>
+        
       </a>
       <a class="company" href="#bluelow">
         <div class="cap"><b>BLUELOW</b><span class="mono muted">2024 – 2025</span></div>
         <p class="muted">Community Manager</p>
         <p>Redes sociales, shootings y eventos con influencers y prensa, con apoyo en el e-commerce y el email marketing.</p>
-        <span class="arrow">Ver trabajo →</span>
+        
       </a>
     </div>
   </div>
@@ -391,17 +416,17 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Moda femenina y accesorios · Madrid · 2024 – 2025</span>
       <h2>BLUELOW</h2>
-      <p class="lede">Empecé en prácticas y después pasé a ser Community Manager. Llevaba las redes sociales, participaba en los shootings, organizaba eventos con influencers y prensa y daba apoyo en la tienda online y en el email marketing.</p>
+      <p class="lede">De prácticas a Community Manager: redes sociales, shootings y eventos, con apoyo en la tienda online y el email marketing.</p>
     </div>
-    <div class="roles-strip">
-      <div><strong>Community Manager</strong><span class="mono muted">Abr. 2025 – Sept. 2025</span></div>
-      <div><strong>Community Manager (prácticas)</strong><span class="mono muted">Sept. 2024 – Abr. 2025</span></div>
-    </div>
+    <ol class="tl" style="--n:2;max-width:760px">
+      <li><span class="dot">1</span><span class="mono muted">Sept. 2024 – Abr. 2025</span><h3>Community Manager (prácticas)</h3></li>
+      <li class="on"><span class="dot">2</span><span class="mono muted">Abr. 2025 – Sept. 2025</span><h3>Community Manager</h3></li>
+    </ol>
     <div class="flow">
-      <div><span class="mono muted">Contenido</span><strong>Redes sociales</strong><p class="muted">Gestión de las redes de la marca: creaba el contenido, montaba las creatividades, ordenaba el feed y analizaba tendencias.</p></div>
-      <div><span class="mono muted">Producción</span><strong>Shootings</strong><p class="muted">Asistencia en los shootings: ayudaba con los estilismos y en la gestión y coordinación con las modelos.</p></div>
-      <div><span class="mono muted">Comunidad</span><strong>Eventos</strong><p class="muted">Organización de eventos con influencers y prensa: contactaba con las invitadas, preparaba las invitaciones y coordinaba a las marcas colaboradoras.</p></div>
-      <div><span class="mono" style="color:var(--ink)">E-commerce</span><strong>Shopify y Klaviyo</strong><p class="muted">Apoyo en la tienda online y campañas de email marketing.</p></div>
+      <div><span class="mono muted">Contenido</span><strong>Redes sociales</strong><p class="muted">Contenido, creatividades, feed y tendencias.</p></div>
+      <div><span class="mono muted">Producción</span><strong>Shootings</strong><p class="muted">Estilismo y coordinación con las modelos.</p></div>
+      <div><span class="mono muted">Comunidad</span><strong>Eventos</strong><p class="muted">Influencers, prensa y marcas colaboradoras: invitaciones y coordinación.</p></div>
+      <div><span class="mono" style="color:var(--ink)">E-commerce</span><strong>Shopify y Klaviyo</strong><p class="muted">Apoyo en la tienda online y el email marketing.</p></div>
     </div>
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">En los shootings</span>
@@ -421,7 +446,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">La parrilla</span>
       <h2>New In</h2>
-      <p class="lede">Es la página más importante de la web, porque es donde aparecen las novedades. Con cada lanzamiento, las nuevas referencias se colocan arriba y las anteriores van bajando, de modo que lo más nuevo siempre se ve primero y convive con los drops anteriores.</p>
+      <p class="lede">La página de novedades, la más importante de la web. Con cada lanzamiento, lo nuevo entra arriba y los drops anteriores van bajando.</p>
       <div class="legend">
         <a class="chip now" href="#d-outwear"><i></i>Outwear · más reciente</a>
         <a class="chip" href="#d-knit"><i></i>Knit 01</a>
@@ -432,23 +457,23 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div>
       <article class="drop now" id="d-outwear">
         <aside>
-          <span class="tag">Esta semana</span>
+          <span class="tag">Más reciente</span>
           <h3>Drop<br>Outwear</h3>
         </aside>
         <img class="shot" src="newin-outwear.jpg" alt="Parrilla New In, filas del drop Outwear" loading="lazy">
       </article>
       <article class="drop" id="d-knit">
         <aside>
-          <span class="tag">Semana anterior</span>
+          <span class="tag">Anterior</span>
           <h3>Drop<br>Knit 01</h3>
-          <p class="muted" style="font-size:15px">Sigue visible justo debajo, con sus bloques de Comprar el look.</p>
+          <p class="muted" style="font-size:15px">Sigue visible debajo, con su Comprar el look.</p>
         </aside>
         <div class="shotcol"><div class="shotwrap"><img class="shot" src="newin-knit.jpg" alt="Parrilla New In, filas del drop Knit 01" loading="lazy"><span class="lookmark" style="left:26.5%;top:39.8%;width:23.7%;height:17.8%" aria-hidden="true"></span></div>
-          <figure class="lookfig"><figcaption><span class="mono">Comprar el look</span><span class="muted">Look 03 · 6 productos. Es un producto que lleva a una landing donde se pueden comprar a la vez todas las prendas del look. Inspira al usuario, eleva la web y potencia el cross-selling.</span></figcaption><img src="look-knit.jpg" alt="Página del look con todos sus productos" loading="lazy"></figure></div>
+          <figure class="lookfig"><figcaption><span class="mono">Comprar el look</span><span class="muted">Look 03 · 6 productos. Una landing para comprar el look completo de una vez: inspira y potencia el cross-selling.</span></figcaption><img src="look-knit.jpg" alt="Página del look con todos sus productos" loading="lazy"></figure></div>
       </article>
       <article class="drop" id="d-leather">
         <aside>
-          <span class="tag">Hace dos semanas</span>
+          <span class="tag">Más antiguo</span>
           <h3>Drop<br>Leather and lines</h3>
           <p class="muted" style="font-size:15px">Y así sucesivamente con el resto de drops anteriores.</p>
         </aside>
@@ -466,7 +491,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Tienda</span>
       <h2>Homes</h2>
-      <p class="lede">Con cada lanzamiento cambio la home: la imagen principal de la campaña, elegida junto con Comunicación, y debajo una selección de productos por categoría y acceso a la colección. Del más reciente al más antiguo. Desliza dentro de cada una para verla entera.</p>
+      <p class="lede">Cada lanzamiento cambia la home: la imagen de campaña, elegida con Comunicación, y debajo productos por categoría y acceso a la colección. Desliza para verla entera.</p>
     </div>
     <div class="homes">
       <div class="home">
@@ -474,11 +499,11 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         <div class="frame"><div class="bar"><span></span><span></span><span></span></div><div class="scroll" tabindex="0" aria-label="Home del drop Outwear"><img src="home-outwear-2.jpg" alt="Home de macabla.com para el drop Outwear"></div></div>
       </div>
       <div class="home">
-        <div class="meta"><h3>Knit 01</h3><span class="mono muted">Semana anterior</span></div>
+        <div class="meta"><h3>Knit 01</h3><span class="mono muted">Anterior</span></div>
         <div class="frame"><div class="bar"><span></span><span></span><span></span></div><div class="scroll" tabindex="0" aria-label="Home del drop Knit 01"><img src="home-knit-2.jpg" alt="Home de macabla.com para el drop Knit 01"></div></div>
       </div>
       <div class="home">
-        <div class="meta"><h3>Leather and lines</h3><span class="mono muted">Hace dos semanas</span></div>
+        <div class="meta"><h3>Leather and lines</h3><span class="mono muted">Más antiguo</span></div>
         <div class="frame"><div class="bar"><span></span><span></span><span></span></div><div class="scroll" tabindex="0" aria-label="Home del drop Leather and lines"><img src="home-leather-2.jpg" alt="Home de macabla.com para el drop Leather and lines"></div></div>
       </div>
     </div>
@@ -491,7 +516,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">La ficha</span>
       <h2>Ficha de producto</h2>
-      <p class="lede">Cada bloque de la ficha tiene un objetivo: que el producto se vea bien, que la clienta elija bien su talla y que descubra más producto. La adapto a cada producto según su tipo y sus tallas: no es lo mismo un accesorio de talla única que una prenda con tallas.</p>
+      <p class="lede">Cada bloque tiene un objetivo: que el producto se vea bien, que la clienta acierte con la talla y que descubra más producto. Se adapta a cada tipo de producto.</p>
       <div class="tabs" role="tablist" aria-label="Elegir ficha">
         <button type="button" role="tab" id="tab-bandana" aria-selected="true" aria-controls="p-bandana" data-tab="p-bandana">Bandana · talla única</button>
         <button type="button" role="tab" id="tab-camiseta" aria-selected="false" aria-controls="p-camiseta" data-tab="p-camiseta">Camiseta · S, M, L</button>
@@ -511,13 +536,13 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
           <span class="pin" style="left:80%;top:56.2%">7</span>
         </div>
         <div class="notes"><ol>
-          <li><span class="n">1</span><div><strong>Galería</strong><p>Decido el orden de las fotos: silueta, e-commerce y campaña. La silueta muestra bien el producto, su tejido y su forma; en las de e-commerce se ve cómo le sienta a la modelo, y las de campaña elevan la marca.</p></div></li>
-          <li><span class="n">2</span><div><strong>Variantes de color</strong><p>Muestran de forma visual los otros colores del mismo producto, para que la clienta pueda elegir sin salir de la ficha.</p></div></li>
-          <li><span class="n">3</span><div><strong>Guía de tallas</strong><p>Monto la guía con las medidas que me pasa Diseño. Ayuda a la clienta a elegir su talla y así reducir cambios y devoluciones.</p></div></li>
-          <li><span class="n">4</span><div><strong>Descripción</strong><p>El nombre del producto, el color y el material se repiten de forma natural en el texto, porque es lo que busca la clienta. Así también mejora el posicionamiento SEO.</p></div></li>
-          <li><span class="n">5</span><div><strong>Completa tu look</strong><p>Prendas que combinan con el producto y aparecen en las fotos. Le da valor a la ficha y empuja el cross-selling, lo que ayuda a subir el ticket medio.</p></div></li>
-          <li><span class="n">6</span><div><strong>Productos recomendados</strong><p>Más cross-selling al final de la ficha. Los voy rotando entre best sellers, novedades y productos que necesitan más visibilidad.</p></div></li>
-          <li><span class="n">7</span><div><strong>Etiquetas</strong><p>Gestiono las etiquetas de producto, como Best seller o Personalizable. Aparecen en las tarjetas de producto de toda la web: New In, colecciones y recomendados.</p></div></li>
+          <li><span class="n">1</span><div><strong>Galería</strong><p>Silueta, e-commerce y campaña, en ese orden: el producto, cómo sienta y la marca.</p></div></li>
+          <li><span class="n">2</span><div><strong>Variantes de color</strong><p>Otros colores del mismo producto, sin salir de la ficha.</p></div></li>
+          <li><span class="n">3</span><div><strong>Guía de tallas</strong><p>Con las medidas de Diseño, para acertar con la talla y reducir devoluciones.</p></div></li>
+          <li><span class="n">4</span><div><strong>Descripción</strong><p>Nombre, color y material en el texto: lo que busca la clienta y lo que mejora el SEO.</p></div></li>
+          <li><span class="n">5</span><div><strong>Completa tu look</strong><p>Prendas de las fotos que combinan con el producto, para subir el ticket medio.</p></div></li>
+          <li><span class="n">6</span><div><strong>Productos recomendados</strong><p>Best sellers, novedades y productos que necesitan visibilidad, en rotación.</p></div></li>
+          <li><span class="n">7</span><div><strong>Etiquetas</strong><p>Best seller o Personalizable, visibles en las tarjetas de producto de toda la web.</p></div></li>
         </ol></div>
       </div>
       <div class="zoom">
@@ -539,13 +564,13 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
           <span class="pin" style="left:41%;top:56.1%">7</span>
         </div>
         <div class="notes"><ol>
-          <li><span class="n">1</span><div><strong>Galería</strong><p>Decido el orden de las fotos: silueta, e-commerce y campaña. La silueta muestra bien el producto, su tejido y su forma; en las de e-commerce se ve cómo le sienta a la modelo, y las de campaña elevan la marca.</p></div></li>
-          <li><span class="n">2</span><div><strong>Variantes de color</strong><p>Muestran de forma visual los otros colores del mismo producto, para que la clienta pueda elegir sin salir de la ficha.</p></div></li>
-          <li><span class="n">3</span><div><strong>Guía de tallas</strong><p>Monto la guía con las medidas que me pasa Diseño. Ayuda a la clienta a elegir su talla y así reducir cambios y devoluciones.</p></div></li>
-          <li><span class="n">4</span><div><strong>Descripción</strong><p>El nombre del producto, el color y el material se repiten de forma natural en el texto, porque es lo que busca la clienta. Así también mejora el posicionamiento SEO.</p></div></li>
-          <li><span class="n">5</span><div><strong>Completa tu look</strong><p>Prendas que combinan con el producto y aparecen en las fotos. Le da valor a la ficha y empuja el cross-selling, lo que ayuda a subir el ticket medio.</p></div></li>
-          <li><span class="n">6</span><div><strong>Productos recomendados</strong><p>Más cross-selling al final de la ficha. Los voy rotando entre best sellers, novedades y productos que necesitan más visibilidad.</p></div></li>
-          <li><span class="n">7</span><div><strong>Etiquetas</strong><p>Gestiono las etiquetas de producto, como Best seller o Personalizable. Aparecen en las tarjetas de producto de toda la web: New In, colecciones y recomendados.</p></div></li>
+          <li><span class="n">1</span><div><strong>Galería</strong><p>Silueta, e-commerce y campaña, en ese orden: el producto, cómo sienta y la marca.</p></div></li>
+          <li><span class="n">2</span><div><strong>Variantes de color</strong><p>Otros colores del mismo producto, sin salir de la ficha.</p></div></li>
+          <li><span class="n">3</span><div><strong>Guía de tallas</strong><p>Con las medidas de Diseño, para acertar con la talla y reducir devoluciones.</p></div></li>
+          <li><span class="n">4</span><div><strong>Descripción</strong><p>Nombre, color y material en el texto: lo que busca la clienta y lo que mejora el SEO.</p></div></li>
+          <li><span class="n">5</span><div><strong>Completa tu look</strong><p>Prendas de las fotos que combinan con el producto, para subir el ticket medio.</p></div></li>
+          <li><span class="n">6</span><div><strong>Productos recomendados</strong><p>Best sellers, novedades y productos que necesitan visibilidad, en rotación.</p></div></li>
+          <li><span class="n">7</span><div><strong>Etiquetas</strong><p>Best seller o Personalizable, visibles en las tarjetas de producto de toda la web.</p></div></li>
         </ol></div>
       </div>
       <div class="zoom">
@@ -557,12 +582,12 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">Cross-selling</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Las recomendaciones salen de los pedidos reales</h2>
-      <div class="loop">
-        <div><span class="mono muted">1</span><strong>Análisis de pedidos</strong><p class="muted">Reviso los pedidos online para entender cómo compra la clienta.</p></div>
-        <div><span class="mono muted">2</span><strong>Productos que se compran juntos</strong><p class="muted">Detecto qué combinaciones se repiten en los carritos.</p></div>
-        <div><span class="mono muted">3</span><strong>Recomendaciones</strong><p class="muted">Con esa información ajusto Completa tu look y los productos recomendados.</p></div>
-        <div><span class="mono muted">Objetivo</span><strong>Subir el ticket medio</strong><p class="muted">Que cada pedido contenga más productos.</p></div>
-      </div>
+      <ol class="tl" style="--n:4">
+        <li><span class="dot">1</span><h3>Pedidos</h3><p class="muted">Cómo compra la clienta online.</p></li>
+        <li><span class="dot">2</span><h3>Combinaciones</h3><p class="muted">Qué productos se repiten juntos en el carrito.</p></li>
+        <li><span class="dot">3</span><h3>Recomendaciones</h3><p class="muted">Completa tu look y recomendados, ajustados a esos datos.</p></li>
+        <li class="on"><span class="dot">✓</span><h3>Objetivo</h3><p class="muted">Subir el ticket medio: más productos en cada pedido.</p></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -573,7 +598,14 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">CRM y email</span>
       <h2>Newsletters y flujos</h2>
-      <p class="lede">Monto el calendario de newsletters al ritmo de los drops con Klaviyo: una a toda la base el día del lanzamiento, en cada idioma, y un refuerzo a los dos días. Además, combino las newsletters de drops con otras editoriales y de eventos que cuentan la marca más allá del producto.</p>
+      <p class="lede">Un calendario en Klaviyo al ritmo de los drops, combinado con newsletters editoriales y de eventos.</p>
+    </div>
+    <ol class="tl" style="--n:3">
+      <li><span class="dot">1</span><span class="mono muted">Día del drop</span><h3>Lanzamiento</h3><p class="muted">A toda la base, en cada idioma.</p></li>
+      <li><span class="dot">2</span><span class="mono muted">A los dos días</span><h3>Refuerzo</h3><p class="muted">Una segunda newsletter, segmentada.</p></li>
+      <li class="on"><span class="dot">3</span><span class="mono muted">Entre drops</span><h3>Editorial y eventos</h3><p class="muted">Cuentan la marca más allá del producto.</p></li>
+    </ol>
+    <div class="stack" style="gap:20px">
       <div class="filters" role="group" aria-label="Filtrar newsletters">
         <button type="button" data-f="all" aria-pressed="true">Todas</button>
         <button type="button" data-f="drop" aria-pressed="false">Drops</button>
@@ -596,11 +628,11 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="band stack" style="gap:24px" id="flujos">
       <span class="eyebrow">Klaviyo</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Flujos automatizados</h2>
-      <p class="lede">Además de las newsletters, se montan flujos que se activan según lo que hace cada persona. Segmento por propiedades, comportamiento e idioma, y con cada drop actualizo las fotos de todos los flujos.</p>
+      <p class="lede">Flujos que se activan según lo que hace cada persona, segmentados por propiedades, comportamiento e idioma. Sus fotos se actualizan con cada drop.</p>
       <div class="flows">
         <div class="stage"><span class="mono muted">Captar</span>
           <div class="frow"><span class="trig">Se suscribe</span><span class="ar" aria-hidden="true">→</span><div><strong>Bienvenida</strong><p class="muted">Descuento de bienvenida y recordatorio si no compra.</p></div></div>
-          <div class="frow"><span class="trig">Se apunta a un coming soon dentro de un producto</span><span class="ar" aria-hidden="true">→</span><div><strong>Lista de espera</strong><p class="muted">Aviso el día que el producto entra en stock.</p></div></div>
+          <div class="frow"><span class="trig">Se apunta a un coming soon</span><span class="ar" aria-hidden="true">→</span><div><strong>Lista de espera</strong><p class="muted">Aviso el día que el producto entra en stock.</p></div></div>
         </div>
         <div class="stage"><span class="mono muted">Recuperar</span>
           <div class="frow"><span class="trig">Ve un producto</span><span class="ar" aria-hidden="true">→</span><div><strong>Producto visto</strong><p class="muted">Le recuerda el producto que estuvo mirando.</p></div></div>
@@ -608,7 +640,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
           <div class="frow"><span class="trig">No termina el pago</span><span class="ar" aria-hidden="true">→</span><div><strong>Checkout abandonado</strong><p class="muted">Le ayuda a terminar la compra.</p></div></div>
         </div>
         <div class="stage dark"><span class="mono">Fidelizar</span>
-          <div class="frow"><span class="trig">Compra</span><span class="ar" aria-hidden="true">→</span><div><strong>Postcompra según el producto</strong><p class="muted">Cada tipo de producto tiene su flujo. Por ejemplo, quien compra una joya recibe cómo cuidarla para que se conserve.</p></div></div>
+          <div class="frow"><span class="trig">Compra</span><span class="ar" aria-hidden="true">→</span><div><strong>Postcompra según el producto</strong><p class="muted">Un flujo por tipo de producto: quien compra una joya recibe cómo cuidarla.</p></div></div>
         </div>
       </div>
     </div>
@@ -619,7 +651,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Caso · Drop Knit 01</span>
       <h2>Early access</h2>
-      <p class="lede">Antes del lanzamiento de Knit 01 abrí una lista de espera con acceso anticipado. Capté leads desde tres puntos, todos adaptados a cada mercado e idioma, y cada lead entraba ordenado en Klaviyo.</p>
+      <p class="lede">Una lista de espera con acceso anticipado antes del drop Knit 01. Leads desde tres puntos, adaptados a cada mercado e idioma, que entraban ordenados en Klaviyo.</p>
     </div>
 
     <div class="stack" style="gap:20px">
@@ -628,17 +660,17 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         <div class="src">
           <div class="img contain"><img src="ad2-lead-1.png" alt="Anuncio de Meta para captar leads con formulario" loading="lazy" style="width:auto;max-height:100%;object-fit:contain"></div>
           <h3>Formulario de Meta</h3>
-          <p class="muted">Campaña de captación de leads con formulario nativo, sin salir de Instagram o Facebook.</p>
+          <p class="muted">Formulario nativo, sin salir de Instagram o Facebook.</p>
         </div>
         <div class="src">
           <div class="img contain"><img src="popup-knit.jpg" alt="Pop-up Join Knit Waitlist en ordenador y en móvil" loading="lazy"></div>
           <h3>Pop-up a pantalla completa</h3>
-          <p class="muted">En la web, ocupando toda la pantalla para captar la atención, en ordenador y en móvil, con cuenta atrás hasta el lanzamiento.</p>
+          <p class="muted">En ordenador y en móvil, con cuenta atrás hasta el lanzamiento.</p>
         </div>
         <div class="src">
           <div class="img"><img src="landing-knit.jpg" alt="Landing Join Knitwear Waitlist" loading="lazy"></div>
           <h3>Landing para compartir</h3>
-          <p class="muted">Una página con su propio enlace para que Comunicación pudiera compartirla en sus canales.</p>
+          <p class="muted">Con enlace propio para que Comunicación la compartiera en sus canales.</p>
         </div>
       </div>
       <div class="klaviyo">Todos los leads entran en Klaviyo, ordenados por mercado e idioma</div>
@@ -662,7 +694,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
       </div>
       <div class="branch">
         <div><strong>Si compra</strong><p class="muted">Sale del flujo.</p></div>
-        <div><strong>Si no compra</strong><p class="muted">Recibe el recordatorio de que el código caduca, para generar urgencia.</p></div>
+        <div><strong>Si no compra</strong><p class="muted">Recordatorio de que el código caduca, para crear urgencia.</p></div>
       </div>
     </div>
   </div>
@@ -675,14 +707,14 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Adquisición</span>
       <h2>Paid media</h2>
-      <p class="lede">Así planteo las campañas alrededor de un drop: antes del lanzamiento, awareness y leads; el día del drop, retargeting y ventas. Cada campaña, adaptada a su mercado e idioma.</p>
+      <p class="lede">Campañas alrededor de cada drop: antes, awareness y leads; cuando se lanza, retargeting y ventas. Cada una adaptada a su mercado e idioma.</p>
       <div class="channels"><span class="chip">Meta Ads</span><span class="chip">Pinterest Ads</span><span class="chip">Google Ads</span></div>
     </div>
 
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Todo conectado</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Trabajo a través de las audiencias</h2>
-      <p class="lede">Las audiencias son la pieza más importante del funnel: conectan todo. El píxel de la web y Klaviyo las alimentan, deciden a quién le llega cada campaña, y cada campaña devuelve datos al sistema.</p>
+      <p class="lede">Las audiencias conectan todo el funnel: el píxel y Klaviyo las alimentan, deciden a quién llega cada campaña, y cada campaña les devuelve datos.</p>
       <div class="eco" role="img" aria-label="Esquema: el píxel y Klaviyo alimentan las audiencias, que activan las campañas, que llevan a la landing, a la web o a Klaviyo y vuelven a alimentar las audiencias">
         <div class="eco-col">
           <span class="mono muted">Datos</span>
@@ -711,13 +743,13 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
           <div class="node"><strong>Web y catálogo</strong><p>Ficha de producto y New In.</p></div>
         </div>
       </div>
-      <div class="loopback"><span aria-hidden="true">↺</span> Cada visita, lead o compra vuelve al píxel y a Klaviyo, y actualiza las audiencias para la siguiente campaña.</div>
+      <div class="loopback"><span aria-hidden="true">↺</span> Cada visita, lead o compra actualiza las audiencias para la siguiente campaña.</div>
     </div>
 
     <div>
       <div class="adgroup">
-        <div class="head"><h3>Awareness y prospecting</h3></div>
-        <p class="muted" style="max-width:62ch">Suelen ser vídeos que anuncian la campaña y contenido que eleva la marca, para llegar a público nuevo antes del drop.</p>
+        <div class="head"><span class="mono muted">1 · Antes del drop</span><h3>Awareness y prospecting</h3></div>
+        <p class="muted" style="max-width:62ch">Vídeos de campaña y contenido de marca para llegar a público nuevo.</p>
         <div class="ads">
           <figure class="ad"><img src="ad2-aw-jerseys.png" alt="Anuncio de marca con jerseys de colores doblados"></figure>
           <figure class="ad"><img src="ad2-aw-joyas.png" alt="Anuncio de marca con charms y anillos"></figure>
@@ -726,8 +758,8 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         </div>
       </div>
       <div class="adgroup">
-        <div class="head"><h3>Captación de leads</h3></div>
-        <p class="muted" style="max-width:62ch">Llevan al formulario de Meta o a la landing de la web. El mensaje resume lo que gana quien se suscribe: 10% de descuento, early access a los lanzamientos, promociones y ventas privadas, y novedades en su email.</p>
+        <div class="head"><span class="mono muted">2 · Antes del drop</span><h3>Captación de leads</h3></div>
+        <p class="muted" style="max-width:62ch">Al formulario de Meta o a la landing, con lo que gana quien se suscribe: 10% de descuento, early access, ventas privadas y novedades.</p>
         <div class="ads">
           <figure class="ad"><img src="ad2-lead-1.png" alt="Anuncio de captación de leads con cárdigan marrón"></figure>
           <figure class="ad"><img src="ad2-lead-2.png" alt="Anuncio de captación de leads con cárdigan azul"></figure>
@@ -735,8 +767,8 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         </div>
       </div>
       <div class="adgroup">
-        <div class="head"><h3>Ventas y retargeting</h3></div>
-        <p class="muted" style="max-width:62ch">Con el drop ya publicado, los looks y el producto llevan directamente a la colección y a la ficha.</p>
+        <div class="head"><span class="mono">3 · Cuando se lanza el drop</span><h3>Ventas y retargeting</h3></div>
+        <p class="muted" style="max-width:62ch">Looks y producto que llevan directos a la colección y a la ficha.</p>
         <div class="ads">
           <figure class="ad"><img src="ad2-ventas-rayas.png" alt="Anuncio de ventas con traje de rayas"></figure>
           <figure class="ad"><img src="ad2-ventas-granate.png" alt="Anuncio de ventas con cárdigan y pantalón granate"></figure>
@@ -757,7 +789,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Análisis</span>
       <h2>Datos e IA</h2>
-      <p class="lede">Las decisiones de la tienda salen de cruzar los datos de todas las plataformas. Trabajo con los informes de Shopify, Meta y Klaviyo y con Microsoft Clarity, y uso la IA para unirlo todo y encontrar oportunidades y soluciones.</p>
+      <p class="lede">Las decisiones salen de cruzar los datos de Shopify, Meta, Klaviyo y Clarity, con IA para unirlo todo y encontrar oportunidades y soluciones.</p>
     </div>
 
     <div class="eco" role="img" aria-label="Esquema: Shopify, Meta, Klaviyo y Clarity se cruzan con IA para obtener informes y decisiones">
@@ -765,7 +797,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
         <span class="mono muted">Fuentes</span>
         <div class="node"><strong>Shopify</strong><p>Ventas, conversión y rendimiento por mercado.</p></div>
         <div class="node"><strong>Meta</strong><p>Resultados de las campañas y las audiencias.</p></div>
-        <div class="node"><strong>Klaviyo</strong><p>Resultados de las newsletters, los flujos y el crecimiento de los segmentos.</p></div>
+        <div class="node"><strong>Klaviyo</strong><p>Newsletters, flujos y segmentos.</p></div>
         <div class="node"><strong>Microsoft Clarity</strong><p>Mapas de calor y grabaciones de sesión.</p></div>
       </div>
       <div class="eco-arrow" aria-hidden="true">→</div>
@@ -779,62 +811,50 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
       <div class="eco-col">
         <span class="mono muted">Resultado</span>
         <div class="node"><strong>Informes y trackers</strong><p>Seguimiento de KPIs para tomar decisiones.</p></div>
-        <div class="node"><strong>Decisiones</strong><p>Qué destacar en la web, qué recomendar y dónde invertir en campañas.</p></div>
+        <div class="node"><strong>Decisiones</strong><p>Qué destacar, qué recomendar y dónde invertir.</p></div>
       </div>
       <div class="eco-arrow" aria-hidden="true">→</div>
       <div class="eco-col">
         <span class="mono muted">Mejora</span>
-        <div class="node accent"><strong>Web y checkout</strong><p style="color:inherit;opacity:.8">Cambios para quitar fricción en el recorrido de compra.</p></div>
-        <div class="node"><strong>Campañas y emails</strong><p>Ajustes en audiencias, mensajes y calendario.</p></div>
+        <div class="node accent"><strong>Web y checkout</strong><p style="color:inherit;opacity:.8">Menos fricción en el recorrido de compra.</p></div>
+        <div class="node"><strong>Campañas y emails</strong><p>Audiencias, mensajes y calendario.</p></div>
       </div>
     </div>
 
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">Qué miro</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Señales que reviso</h2>
-      <div class="signals">
-        <div class="sg"><span class="mono muted">Clarity · comportamiento</span><ul>
-          <li><strong>Dead clicks:</strong> clics en elementos que no son enlaces.</li>
-          <li><strong>Rage clicks:</strong> clics repetidos en un punto, señal de frustración.</li>
-          <li><strong>Quick backs:</strong> señal de que no encontró lo que esperaba.</li>
-          <li><strong>Profundidad de scroll:</strong> hasta dónde baja la gente en la home y la parrilla.</li>
-          <li><strong>Móvil y ordenador:</strong> diferencias de comportamiento por dispositivo.</li>
-        </ul></div>
-        <div class="sg"><span class="mono muted">Shopify · producto y venta</span><ul>
-          <li>Productos con muchas visitas y poca conversión.</li>
-          <li>Productos que se añaden al carrito pero se compran poco.</li>
-          <li>Búsquedas sin resultado en el buscador.</li>
-          <li>Conversión por mercado.</li>
-        </ul></div>
-        <div class="sg"><span class="mono muted">Cruzando plataformas</span><ul>
-          <li><strong>Campaña y web:</strong> tráfico que llega pero no convierte.</li>
-          <li><strong>Email y web:</strong> productos con clics en la newsletter que no se compran.</li>
-        </ul></div>
-      </div>
+      <ul class="sig1">
+        <li><span class="mono muted">Clarity</span><strong>Rage y dead clicks</strong><p class="muted">Dónde se frustra la gente al navegar.</p></li>
+        <li><span class="mono muted">Clarity</span><strong>Quick backs</strong><p class="muted">Páginas que no dan lo que la gente esperaba.</p></li>
+        <li><span class="mono muted">Clarity</span><strong>Profundidad de scroll</strong><p class="muted">Hasta dónde se ven la home y la parrilla, en móvil y ordenador.</p></li>
+        <li><span class="mono muted">Shopify</span><strong>Visitas sin conversión</strong><p class="muted">Productos muy vistos o añadidos al carrito que se compran poco.</p></li>
+        <li><span class="mono muted">Meta · Klaviyo · Shopify</span><strong>Clics sin compra</strong><p class="muted">Campañas y newsletters que traen tráfico que no convierte.</p></li>
+      </ul>
+    </div>
     </div>
 
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">Antes de lanzar una campaña</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Los KPIs que fijo primero</h2>
-      <p class="lede">Antes de activar una campaña establezco los límites para que sea rentable en todo momento.</p>
+      <p class="lede">Los límites que mantienen cada campaña rentable.</p>
       <div class="kpis">
-        <div><b>ROAS</b><span class="mono muted">Retorno de la inversión publicitaria</span><p class="muted">Para fijar el mínimo que tiene que devolver cada campaña para ser rentable.</p></div>
-        <div><b>CPA máximo</b><span class="mono muted">Coste por adquisición</span><p class="muted">Lo calculo en función del coste total del producto, para saber cuánto se puede pagar por cada venta sin perder rentabilidad.</p></div>
-        <div><b>MER</b><span class="mono muted">Marketing efficiency ratio</span><p class="muted">Para tener la visión global de la inversión en marketing, más allá de cada campaña.</p></div>
+        <div><b>ROAS</b><p class="muted">El mínimo que tiene que devolver cada campaña.</p></div>
+        <div><b>CPA máximo</b><p class="muted">Según el coste total del producto: lo máximo por venta sin perder rentabilidad.</p></div>
+        <div><b>MER</b><p class="muted">La visión global de la inversión en marketing.</p></div>
       </div>
     </div>
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">En el día a día</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Los KPIs que sigo</h2>
-      <p class="lede">Cada indicador está conectado con una parte del trabajo.</p>
       <div class="kpi-grid">
-        <a href="#ficha"><b>AOV</b><span class="mono muted">Ticket medio</span><p class="muted">Para medir el efecto del cross-selling de Completa tu look y recomendados.</p><span class="arrow">Ficha de producto →</span></a>
-        <a href="#new-in"><b>CR</b><span class="mono muted">Tasa de conversión</span><p class="muted">Para seguir cómo convierte la web y cada mercado.</p><span class="arrow">New In →</span></a>
-        <a href="#paid"><b>CAC</b><span class="mono muted">Coste de adquisición de cliente</span><p class="muted">Para controlar cuánto cuesta conseguir cada cliente nuevo.</p><span class="arrow">Paid media →</span></a>
-        <a href="#newsletters"><b>LTV</b><span class="mono muted">Valor de vida del cliente</span><p class="muted">Para medir el trabajo de los flujos de Klaviyo, sobre todo el de postcompra.</p><span class="arrow">Flujos →</span></a>
-        <a href="#early-access"><b>CPL</b><span class="mono muted">Coste por lead</span><p class="muted">Para controlar las campañas de captación y el early access.</p><span class="arrow">Early access →</span></a>
-        <a href="#paid"><b>CTR</b><span class="mono muted">Y frecuencia</span><p class="muted">Para saber si un anuncio interesa y controlar cuántas veces lo ve cada persona.</p><span class="arrow">Paid media →</span></a>
-        <a href="#ficha"><b>Devoluciones</b><span class="mono muted">Tasa de devoluciones</span><p class="muted">Para comprobar si la guía de tallas y la ficha ayudan a acertar con la compra.</p><span class="arrow">Ficha de producto →</span></a>
+        <a href="#ficha"><b>AOV</b><p class="muted">El efecto del cross-selling.</p></a>
+        <a href="#new-in"><b>CR</b><p class="muted">Cómo convierten la web y cada mercado.</p></a>
+        <a href="#paid"><b>CAC</b><p class="muted">Cuánto cuesta cada cliente nuevo.</p></a>
+        <a href="#newsletters"><b>LTV</b><p class="muted">El impacto de los flujos, sobre todo el de postcompra.</p></a>
+        <a href="#early-access"><b>CPL</b><p class="muted">Campañas de captación y early access.</p></a>
+        <a href="#paid"><b>CTR y frecuencia</b><p class="muted">Si un anuncio interesa y cuántas veces se ve.</p></a>
+        <a href="#ficha"><b>Devoluciones</b><p class="muted">Si la guía de tallas y la ficha ayudan a acertar.</p></a>
       </div>
     </div>
   </div>
@@ -864,12 +884,12 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
             <div><strong>E-commerce Intern</strong><span class="mono muted">Sept. 2025 – Feb. 2026</span></div>
           </div>
           <ul>
-            <li><b>Gestión integral de la tienda online (Shopify):</b> catálogo y fichas de producto en varios mercados e idiomas, merchandising, promociones e integración con apps y canales de venta.</li>
-            <li><b>Estrategia comercial y lanzamientos:</b> calendario comercial y lanzamiento de drops, coordinando con Comunicación, Diseño, Compras y Logística hasta la puesta en marcha en la web.</li>
-            <li><b>Análisis de negocio:</b> seguimiento de ventas, conversión, rentabilidad y rendimiento por mercado, con informes y trackers. Mejora de la web y el checkout con Microsoft Clarity.</li>
-            <li><b>CRM y email marketing (Klaviyo):</b> newsletters, segmentación por propiedades y comportamiento, formularios de captación y flujos automatizados.</li>
-            <li><b>Paid media (Meta, Google y Pinterest Ads):</b> awareness, captación de leads, retargeting y ventas por mercado, con catálogos para anuncios dinámicos.</li>
-            <li><b>IA aplicada al negocio:</b> Claude conectado a Shopify, Klaviyo, Meta Ads y Clarity para cruzar datos y agilizar informes.</li>
+            <li><b>Gestión integral de la tienda online (Shopify):</b> responsable de la tienda en varios mercados: creación de productos y catálogos, merchandising digital y cross-selling (homes, colecciones, looks y recomendaciones), promociones e integración con apps y canales de venta.</li>
+            <li><b>Estrategia comercial y lanzamiento de drops:</b> planificación del calendario comercial (drops, campañas y promociones), adaptando catálogo, idiomas y estrategia a cada mercado. Briefing e-commerce, montaje de la web, checklist de lanzamiento y análisis posterior, en coordinación con Comunicación, Diseño, Compras y Logística.</li>
+            <li><b>Análisis de negocio y optimización:</b> seguimiento de KPIs de venta, conversión, rentabilidad y rendimiento por mercado. Análisis del embudo de compra y del comportamiento del cliente, con informes y trackers para la toma de decisiones. Mejora continua de la web a partir de estudios de UX con Microsoft Clarity.</li>
+            <li><b>CRM y email marketing (Klaviyo):</b> campañas por lanzamiento; segmentación por propiedades y comportamiento; captación de leads con formularios, early access y listas de espera (coming soon); y flujos automatizados (bienvenida, lista de espera, carrito y checkout abandonado, producto visto, postcompra) orientados al valor de vida del cliente.</li>
+            <li><b>Adquisición (Meta Ads, Pinterest Ads y Google Ads):</b> estrategia y gestión del funnel completo. Creación de audiencias y campañas por mercados, catálogos para anuncios dinámicos, diseño de creatividades y optimización de anuncios y presupuesto.</li>
+            <li><b>IA:</b> uso de Claude conectado a Shopify, Klaviyo, Meta Ads y Clarity para cruzar datos entre plataformas, detectar oportunidades de optimización y agilizar informes y tareas recurrentes.</li>
           </ul>
         </article>
 
@@ -880,8 +900,9 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
             <div><strong>Community Manager (prácticas)</strong><span class="mono muted">Sept. 2024 – Abr. 2025</span></div>
           </div>
           <ul>
-            <li>Apoyo en la tienda online en Shopify y gestión de campañas de email marketing con Klaviyo.</li>
-            <li>Gestión de redes sociales, asistencia a los shootings y organización de eventos con influencers y prensa.</li>
+            <li>Gestión de redes sociales: creación de contenido y creatividades, organización del feed y análisis de tendencias.</li>
+            <li>Asistencia en shootings (estilismo y coordinación con modelos) y organización de eventos con influencers y prensa, incluida la relación con marcas colaboradoras.</li>
+            <li>Apoyo en la tienda online en Shopify y en campañas de email marketing con Klaviyo.</li>
           </ul>
         </article>
 
@@ -902,7 +923,7 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 
       <aside class="cv-side">
         <div class="side-block"><span class="eyebrow">Competencias</span><ul class="plain">
-          <li>Gestión de tiendas online</li><li>Planificación comercial y lanzamientos</li><li>CRM y automatizaciones de email</li><li>Análisis de KPIs y embudo de conversión</li><li>Creatividad aplicada al e-commerce</li></ul></div>
+          <li>Gestión de tiendas online</li><li>Planificación comercial y lanzamientos</li><li>CRM y automatizaciones de email</li><li>Análisis de KPIs y embudo de conversión</li><li>Merchandising digital y cross-selling</li><li>Creatividad aplicada al e-commerce</li></ul></div>
         <div class="side-block"><span class="eyebrow">Herramientas</span>
           <dl>
             <dt>E-commerce y CRM</dt><dd>Shopify, Klaviyo</dd>
@@ -933,22 +954,14 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Internacional</span>
       <h2>Mercados</h2>
-      <p class="lede">La tienda vendía en varios mercados, en español e inglés. Agrupaba los mercados según sus propiedades, y todo lo demás se adaptaba a partir de esa estructura.</p>
-    </div>
-    <div class="stack" style="gap:16px">
-      <span class="mono muted">Los mercados se agrupan por</span>
-      <div class="kpis">
-        <div><b>Precio</b><p class="muted">Precios adaptados a cada grupo de mercados.</p></div>
-        <div><b>Moneda</b><p class="muted">Cada cliente compra en su moneda.</p></div>
-        <div><b>Envío</b><p class="muted">Métodos de envío según el destino.</p></div>
-      </div>
+      <p class="lede">Varios mercados, en español e inglés, agrupados por precio, moneda y envío. Todo lo demás se adapta a esa estructura.</p>
     </div>
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">Lo que se adapta</span>
       <div class="flow">
-        <div><span class="mono muted">Web</span><strong>Dos idiomas</strong><p class="muted">Tienda, fichas y descripciones en español e inglés.</p></div>
-        <div><span class="mono muted">Klaviyo</span><strong>Por idioma</strong><p class="muted">Leads y newsletters ordenados por mercado e idioma.</p></div>
-        <div><span class="mono muted">Paid media</span><strong>Por mercado</strong><p class="muted">Campañas y textos adaptados a cada mercado.</p></div>
+        <div><span class="mono muted">Web</span><strong>Dos idiomas</strong><p class="muted">Tienda y fichas en español e inglés.</p></div>
+        <div><span class="mono muted">Klaviyo</span><strong>Por idioma</strong><p class="muted">Leads y newsletters por mercado e idioma.</p></div>
+        <div><span class="mono muted">Paid media</span><strong>Por mercado</strong><p class="muted">Campañas adaptadas a cada mercado.</p></div>
         <div><span class="mono" style="color:var(--ink)">Caso</span><strong>Reino Unido</strong><p class="muted">Mercado propio para el pop-up de Londres. <a href="#londres">Ver caso →</a></p></div>
       </div>
     </div>
@@ -961,14 +974,15 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">CRM · Lista de espera</span>
       <h2>Coming soon</h2>
-      <p class="lede">Cuando una referencia no llega a tiempo para su drop, o se agota y está prevista una reposición, se queda publicada en la web como coming soon. La espera se convierte en demanda.</p>
+      <p class="lede">Si una referencia llega tarde o se agota con reposición prevista, sigue publicada como coming soon: la espera se convierte en demanda.</p>
     </div>
-    <div class="cs">
-      <div><span class="mono muted">1</span><strong>El producto no llega o se agota</strong><p class="muted">La referencia no entra en stock a tiempo para el drop, o se agota y está prevista una reposición.</p></div>
-      <div><span class="mono muted">2</span><strong>Se publica como coming soon</strong><p class="muted">Aparece en la web con la opción de apuntarse a la lista de espera. Se genera necesidad y una cola para comprarlo, y puede convertirse en un producto muy demandado.</p></div>
-      <div><span class="mono muted">3</span><strong>Llega y entra en stock</strong><p class="muted">El día que llega, se activa el stock en la web.</p></div>
-      <div class="d"><span class="mono">4</span><strong>El flujo avisa</strong><p>Klaviyo avisa a toda la lista de espera, lo que lo convierte en un flujo con una buena conversión.</p></div>
-    </div>
+    <ol class="tl" style="--n:4">
+      <li><span class="dot">1</span><h3>No llega o se agota</h3><p class="muted">Sin stock a tiempo para el drop, o agotada con reposición prevista.</p></li>
+      <li><span class="dot">2</span><h3>Coming soon</h3><p class="muted">Publicada con lista de espera: se genera cola y demanda.</p></li>
+      <li><span class="dot">3</span><h3>Entra en stock</h3><p class="muted">El día que llega, se activa en la web.</p></li>
+      <li class="on"><span class="dot">4</span><h3>El flujo avisa</h3><p class="muted">Klaviyo avisa a toda la lista: un flujo con buena conversión.</p></li>
+    </ol>
+</div>
   </div>
 </section>
 
@@ -978,20 +992,19 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Estrategia</span>
       <h2>Lanzamiento de drops</h2>
-      <p class="lede">Cada drop tiene su propio ciclo. Según el número de referencias, ajusto los tiempos y monto el calendario a partir de ellos. Como ejemplo, así se organiza un ciclo de cuatro semanas.</p>
+      <p class="lede">Cada drop tiene su propio ciclo, que se ajusta al número de referencias. Este es un ciclo de cuatro semanas.</p>
     </div>
-
-    <div class="weeks">
-      <div class="week"><span class="mono muted">Semana 1</span><h3>Planificación</h3><ul><li>Recibo de Diseño y Compras las referencias y sus tiempos de entrega, y organizo los drops por semanas.</li><li>Empiezo a crear los productos en Shopify.</li></ul></div>
-      <div class="week"><span class="mono muted">Semana 2</span><h3>Briefing y shooting</h3><ul><li>Redacto el briefing con todo lo que necesito para lanzar el drop y lo comparto con Comunicación para que hagan el shooting.</li><li>También lo reciben el resto de equipos, con necesidades como la guía de tallas o los cuidados.</li></ul></div>
-      <div class="week"><span class="mono muted">Semana 3</span><h3>Montaje e-commerce</h3><ul><li>Subo las fotos a la web.</li><li>Monto la home y la preview de la parrilla New In.</li><li>Preparo el contenido para paid media y newsletters.</li><li>Arranca el pre-lanzamiento y, si lo hay, el early access.</li></ul></div>
-      <div class="week d"><span class="mono">Semana 4</span><h3>Drop y análisis</h3><ul><li>Lanzamiento en la web, newsletter a toda la base por idioma y campañas de retargeting y ventas.</li><li>Actualizo las fotos de los flujos de Klaviyo.</li><li>Refuerzo segmentado a los dos días.</li><li>Análisis post lanzamiento: ventas, conversión, resultados de email y paid y aprendizajes para el siguiente drop.</li></ul></div>
-    </div>
+    <ol class="tl" style="--n:4">
+      <li><span class="dot">1</span><span class="mono muted">Semana 1</span><h3>Planificación</h3><p class="muted">Referencias y tiempos de entrega de Diseño y Compras. Los productos empiezan a crearse en Shopify.</p></li>
+      <li><span class="dot">2</span><span class="mono muted">Semana 2</span><h3>Briefing y shooting</h3><p class="muted">El briefing e-commerce llega a Comunicación para el shooting y al resto de equipos.</p></li>
+      <li><span class="dot">3</span><span class="mono muted">Semana 3</span><h3>Montaje e-commerce</h3><p class="muted">Fotos en la web, home y New In, contenido para paid y newsletters, y pre-lanzamiento.</p></li>
+      <li class="on"><span class="dot">4</span><span class="mono muted">Semana 4</span><h3>Drop y análisis</h3><p class="muted">Lanzamiento en web, newsletter y paid, con refuerzo a los dos días. Glovo y tiendas reciben la información. Análisis para el siguiente drop.</p></li>
+    </ol>
 
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">Drops en paralelo</span>
       <h2 style="font-size:clamp(34px,5vw,64px)">Los ciclos se solapan</h2>
-      <p class="lede">Los ciclos se solapan y los drops tienen que ir conviviendo unos con otros. El análisis no termina con el lanzamiento: es constante.</p>
+      <p class="lede">Varios drops conviven a la vez y el análisis es constante.</p>
       <div class="gantt-box" role="region" aria-label="Calendario de tres drops solapados" tabindex="0">
         <div class="gantt">
           <div class="h"></div><div class="h">Sem. 1</div><div class="h">Sem. 2</div><div class="h">Sem. 3</div><div class="h">Sem. 4</div><div class="h">Sem. 5</div><div class="h">Sem. 6</div><div class="h">Sem. 7</div>
@@ -1003,51 +1016,16 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     </div>
 
     <div class="band stack" style="gap:24px">
-      <span class="eyebrow">Semana 1</span>
+      <span class="eyebrow">Semana 2</span>
       <h2 style="font-size:clamp(30px,4.4vw,56px)">Briefing e-commerce</h2>
+      <p class="lede">Un solo documento con todo lo que necesita el drop, para que todos los equipos trabajen con la misma información.</p>
       <div class="build">
         <img class="briefing-img" src="briefing-outwear-2.jpg" alt="Briefing del drop Outwear con las referencias del drop y los productos añadidos">
         <div class="why">
-          <div><strong>Referencias</strong><p class="muted">Las prendas del drop y, aparte, los productos añadidos: best sellers y referencias que se van quedando atrás, a las que se les da una vuelta con nuevo contenido. Añadimos características como el PVP y la compra inicial, para que el equipo sepa la profundidad del drop.</p></div>
-          <div><strong>Contenido</strong><p class="muted">Siluetas, fotos e-commerce, campaña y contenido orgánico, con sus medidas y formatos correspondientes para la web, las newsletters y paid media.</p></div>
-          <div><strong>Detalles a cuidar</strong><p class="muted">Características especiales de cada prenda, como el tejido del punto, las etiquetas bordadas en primer plano y los bordados de los accesorios.</p></div>
+          <div><strong>Referencias</strong><p class="muted">Prendas del drop y productos añadidos (best sellers y referencias a reactivar), con PVP y compra inicial.</p></div>
+          <div><strong>Contenido</strong><p class="muted">Siluetas, e-commerce, campaña y orgánico, con formatos para web, newsletters y paid.</p></div>
+          <div><strong>Detalles a cuidar</strong><p class="muted">Lo que tiene que verse en cada prenda: tejido, etiquetas y bordados.</p></div>
         </div>
-      </div>
-    </div>
-
-    <div class="band stack" style="gap:24px">
-      <span class="eyebrow">Cuando llega el contenido</span>
-      <h2 style="font-size:clamp(34px,5vw,64px)">Del shooting a la web</h2>
-      <div class="flow">
-        <div><span class="mono muted">Paso 1</span><strong>Ordeno y divido</strong><p class="muted">Foto silueta, e-commerce, campaña y orgánico.</p></div>
-        <div><span class="mono muted">Paso 2</span><strong>Subo las fotos</strong><p class="muted">Cada foto a su producto en Shopify.</p></div>
-        <div><span class="mono muted">Paso 3</span><strong>Home y New In</strong><p class="muted">Monto la home y la preview de la parrilla.</p></div>
-        <div><span class="mono" style="color:var(--accent)">Paso 4</span><strong>Paid y newsletters</strong><p class="muted">Preparo el contenido para campañas y emails.</p></div>
-      </div>
-    </div>
-    <div class="band stack" style="gap:24px">
-      <span class="eyebrow">Cuando se lanza el drop</span>
-      <h2 style="font-size:clamp(30px,4.4vw,56px)">Checklist de lanzamiento</h2>
-      <p class="lede">Cada drop sale con una checklist, para que no se escape nada.</p>
-      <ul class="check">
-        <li>Productos publicados, con todas sus fotos y en orden</li>
-        <li>Fichas con descripción, guía de tallas y traducción al inglés</li>
-        <li>Precios revisados en cada mercado</li>
-        <li>Home y parrilla New In actualizadas</li>
-        <li>Completa tu look y productos recomendados</li>
-        <li>Newsletter programada en español e inglés</li>
-        <li>Campañas de retargeting y ventas activas</li>
-        <li>Fotos de los flujos de Klaviyo actualizadas</li>
-        <li>Información del drop enviada a Glovo y a las tiendas</li>
-      </ul>
-    </div>
-
-    <div class="band stack" style="gap:24px">
-      <span class="eyebrow">Todos los canales</span>
-      <h2 style="font-size:clamp(30px,4.4vw,56px)">Alineados con cada drop</h2>
-      <div class="two">
-        <div class="opt"><span class="mono">Glovo</span><h3>Información de cada lanzamiento</h3><p class="muted">Con cada drop les envío la información para que su catálogo esté alineado con la web.</p></div>
-        <div class="opt"><span class="mono">Tiendas físicas</span><h3>La misma información</h3><p class="muted">Las tiendas reciben también los datos del drop para ir todos a la vez.</p></div>
       </div>
     </div>
   </div>
@@ -1057,23 +1035,23 @@ footer a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
     <div class="stack" style="gap:20px">
       <span class="eyebrow">Caso · Octubre 2026</span>
       <h2>Pop-up en Londres</h2>
-      <p class="lede">Durante la primera quincena de octubre, Macabla abrió un pop-up físico en Londres acompañado de una estrategia online en paralelo. No era solo un evento: era la entrada de la marca en Reino Unido.</p>
+      <p class="lede">Un pop-up físico durante la primera quincena de octubre, con una estrategia online en paralelo: la entrada de la marca en Reino Unido.</p>
     </div>
     <div class="two">
-      <div class="opt"><span class="mono">Objetivo 1</span><h3>Abrir el mercado de Reino Unido</h3><p class="muted">Preparar la web para vender en Reino Unido y dar a conocer la marca allí.</p></div>
-      <div class="opt"><span class="mono">Objetivo 2</span><h3>Llevar gente al pop-up</h3><p class="muted">Usar paid media para atraer público al espacio físico.</p></div>
+      <div class="opt"><span class="mono">Objetivo 1</span><h3>Abrir el mercado de Reino Unido</h3><p class="muted">Web lista para vender allí y marca más conocida.</p></div>
+      <div class="opt"><span class="mono">Objetivo 2</span><h3>Llevar gente al pop-up</h3><p class="muted">Paid media para atraer público al espacio físico.</p></div>
     </div>
     <div class="band stack" style="gap:24px">
       <span class="eyebrow">Online y offline a la vez</span>
-      <h2 style="font-size:clamp(30px,4.4vw,56px)">Una estrategia completa alrededor del evento</h2>
+      <h2 style="font-size:clamp(30px,4.4vw,56px)">Tres canales, un mismo evento</h2>
       <div class="flow" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-        <div><span class="mono muted">Web · Shopify</span><strong>Reino Unido como mercado</strong><p class="muted">Mercado propio con precios adaptados y una selección de productos destacados, elegidos según el tipo de cliente y el clima de Reino Unido.</p></div>
-        <div><span class="mono muted">Paid media</span><strong>Campañas por ubicación</strong><p class="muted">Segmentadas geográficamente para atraer gente al pop-up y dar a conocer la marca en Reino Unido.</p></div>
-        <div><span class="mono" style="color:var(--ink)">Klaviyo</span><strong>Segmento de Reino Unido y Londres</strong><p class="muted">Comunicaciones específicas para anunciar el evento antes y contarlo después.</p></div>
+        <div><span class="mono muted">Web · Shopify</span><strong>Reino Unido como mercado</strong><p class="muted">Precios adaptados y productos elegidos según la clienta y el clima.</p></div>
+        <div><span class="mono muted">Paid media</span><strong>Campañas por ubicación</strong><p class="muted">Segmentadas para llevar gente al pop-up y dar a conocer la marca.</p></div>
+        <div><span class="mono" style="color:var(--ink)">Klaviyo</span><strong>Segmento de Reino Unido y Londres</strong><p class="muted">Anunciar el evento antes y contarlo después.</p></div>
       </div>
     </div>
     <div class="stack" style="gap:24px">
-      <div class="stack" style="gap:12px;max-width:640px"><h3>Newsletter del evento durante el pop-up</h3><p class="muted">Enviada mientras el pop-up estaba abierto, cuenta el evento con fotos del ambiente y de las invitadas, y dirige el tráfico de vuelta a la web.</p></div>
+      <div class="stack" style="gap:12px;max-width:640px"><h3>Newsletter del evento durante el pop-up</h3><p class="muted">Ambiente, invitadas y tráfico de vuelta a la web.</p></div>
       <div class="nl" style="max-width:640px"><div class="scroll" tabindex="0" aria-label="Newsletter del pop-up de Londres" style="max-height:760px"><img src="nl-london.jpg" alt="Newsletter del pop-up de Londres"></div></div>
     </div>
   </div>
